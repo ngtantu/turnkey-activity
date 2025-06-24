@@ -107,7 +107,7 @@ Map<String, dynamic> _$ActivityToJson(Activity instance) => <String, dynamic>{
       'status': activityStatusToJson(instance.status),
       'type': activityTypeToJson(instance.type),
       'intent': instance.intent.toJson(),
-      'result': instance.result.toJson(),
+      'result': instance.result?.toJson(),
       'votes': instance.votes.map((e) => e.toJson()).toList(),
       'fingerprint': instance.fingerprint,
       'canApprove': instance.canApprove,
