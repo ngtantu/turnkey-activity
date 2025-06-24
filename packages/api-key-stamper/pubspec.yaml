@@ -12,11 +12,6 @@ dependencies:
   crypto: ^3.0.6
   elliptic: ^0.3.11
   ecdsa: ^0.1.2
-  turnkey_http:
-    git:
-      url: https://github.com/ngtantu/turnkey-activity.git
-      path: packages/http
-      ref: main
   turnkey_encoding: ^0.1.0
 
 dev_dependencies:
@@ -24,3 +19,10 @@ dev_dependencies:
     sdk: flutter
   build_runner: ^2.0.0
   build_test: ^2.0.0
+
+dependency_overrides:
+  turnkey_http:
+    git:
+      url: https://github.com/ngtantu/turnkey-activity.git
+      path: packages/http
+      ref: main

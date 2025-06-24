@@ -2283,7 +2283,6 @@
         "status",
         "type",
         "intent",
-        "result",
         "votes",
         "fingerprint",
         "canApprove",

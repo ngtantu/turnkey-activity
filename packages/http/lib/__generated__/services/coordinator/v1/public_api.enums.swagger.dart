@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:collection/collection.dart';
 
 enum AccessType {
   @JsonValue(null)
@@ -118,7 +119,8 @@ enum ActivityType {
   activityTypeCreateSubOrganization('ACTIVITY_TYPE_CREATE_SUB_ORGANIZATION'),
   @JsonValue('ACTIVITY_TYPE_CREATE_SUB_ORGANIZATION_V2')
   activityTypeCreateSubOrganizationV2(
-      'ACTIVITY_TYPE_CREATE_SUB_ORGANIZATION_V2'),
+    'ACTIVITY_TYPE_CREATE_SUB_ORGANIZATION_V2',
+  ),
   @JsonValue('ACTIVITY_TYPE_UPDATE_ALLOWED_ORIGINS')
   activityTypeUpdateAllowedOrigins('ACTIVITY_TYPE_UPDATE_ALLOWED_ORIGINS'),
   @JsonValue('ACTIVITY_TYPE_CREATE_PRIVATE_KEYS_V2')
@@ -131,7 +133,8 @@ enum ActivityType {
   activityTypeSetPaymentMethodV2('ACTIVITY_TYPE_SET_PAYMENT_METHOD_V2'),
   @JsonValue('ACTIVITY_TYPE_CREATE_SUB_ORGANIZATION_V3')
   activityTypeCreateSubOrganizationV3(
-      'ACTIVITY_TYPE_CREATE_SUB_ORGANIZATION_V3'),
+    'ACTIVITY_TYPE_CREATE_SUB_ORGANIZATION_V3',
+  ),
   @JsonValue('ACTIVITY_TYPE_CREATE_WALLET')
   activityTypeCreateWallet('ACTIVITY_TYPE_CREATE_WALLET'),
   @JsonValue('ACTIVITY_TYPE_CREATE_WALLET_ACCOUNTS')
@@ -144,7 +147,8 @@ enum ActivityType {
   activityTypeSetOrganizationFeature('ACTIVITY_TYPE_SET_ORGANIZATION_FEATURE'),
   @JsonValue('ACTIVITY_TYPE_REMOVE_ORGANIZATION_FEATURE')
   activityTypeRemoveOrganizationFeature(
-      'ACTIVITY_TYPE_REMOVE_ORGANIZATION_FEATURE'),
+    'ACTIVITY_TYPE_REMOVE_ORGANIZATION_FEATURE',
+  ),
   @JsonValue('ACTIVITY_TYPE_SIGN_RAW_PAYLOAD_V2')
   activityTypeSignRawPayloadV2('ACTIVITY_TYPE_SIGN_RAW_PAYLOAD_V2'),
   @JsonValue('ACTIVITY_TYPE_SIGN_TRANSACTION_V2')
@@ -155,7 +159,8 @@ enum ActivityType {
   activityTypeExportWallet('ACTIVITY_TYPE_EXPORT_WALLET'),
   @JsonValue('ACTIVITY_TYPE_CREATE_SUB_ORGANIZATION_V4')
   activityTypeCreateSubOrganizationV4(
-      'ACTIVITY_TYPE_CREATE_SUB_ORGANIZATION_V4'),
+    'ACTIVITY_TYPE_CREATE_SUB_ORGANIZATION_V4',
+  ),
   @JsonValue('ACTIVITY_TYPE_EMAIL_AUTH')
   activityTypeEmailAuth('ACTIVITY_TYPE_EMAIL_AUTH'),
   @JsonValue('ACTIVITY_TYPE_EXPORT_WALLET_ACCOUNT')
@@ -180,7 +185,8 @@ enum ActivityType {
   activityTypeDeleteOauthProviders('ACTIVITY_TYPE_DELETE_OAUTH_PROVIDERS'),
   @JsonValue('ACTIVITY_TYPE_CREATE_SUB_ORGANIZATION_V5')
   activityTypeCreateSubOrganizationV5(
-      'ACTIVITY_TYPE_CREATE_SUB_ORGANIZATION_V5'),
+    'ACTIVITY_TYPE_CREATE_SUB_ORGANIZATION_V5',
+  ),
   @JsonValue('ACTIVITY_TYPE_OAUTH')
   activityTypeOauth('ACTIVITY_TYPE_OAUTH'),
   @JsonValue('ACTIVITY_TYPE_CREATE_API_KEYS_V2')
@@ -191,14 +197,16 @@ enum ActivityType {
   activityTypeEmailAuthV2('ACTIVITY_TYPE_EMAIL_AUTH_V2'),
   @JsonValue('ACTIVITY_TYPE_CREATE_SUB_ORGANIZATION_V6')
   activityTypeCreateSubOrganizationV6(
-      'ACTIVITY_TYPE_CREATE_SUB_ORGANIZATION_V6'),
+    'ACTIVITY_TYPE_CREATE_SUB_ORGANIZATION_V6',
+  ),
   @JsonValue('ACTIVITY_TYPE_DELETE_PRIVATE_KEYS')
   activityTypeDeletePrivateKeys('ACTIVITY_TYPE_DELETE_PRIVATE_KEYS'),
   @JsonValue('ACTIVITY_TYPE_DELETE_WALLETS')
   activityTypeDeleteWallets('ACTIVITY_TYPE_DELETE_WALLETS'),
   @JsonValue('ACTIVITY_TYPE_CREATE_READ_WRITE_SESSION_V2')
   activityTypeCreateReadWriteSessionV2(
-      'ACTIVITY_TYPE_CREATE_READ_WRITE_SESSION_V2'),
+    'ACTIVITY_TYPE_CREATE_READ_WRITE_SESSION_V2',
+  ),
   @JsonValue('ACTIVITY_TYPE_DELETE_SUB_ORGANIZATION')
   activityTypeDeleteSubOrganization('ACTIVITY_TYPE_DELETE_SUB_ORGANIZATION'),
   @JsonValue('ACTIVITY_TYPE_INIT_OTP_AUTH')
@@ -207,7 +215,8 @@ enum ActivityType {
   activityTypeOtpAuth('ACTIVITY_TYPE_OTP_AUTH'),
   @JsonValue('ACTIVITY_TYPE_CREATE_SUB_ORGANIZATION_V7')
   activityTypeCreateSubOrganizationV7(
-      'ACTIVITY_TYPE_CREATE_SUB_ORGANIZATION_V7'),
+    'ACTIVITY_TYPE_CREATE_SUB_ORGANIZATION_V7',
+  ),
   @JsonValue('ACTIVITY_TYPE_UPDATE_WALLET')
   activityTypeUpdateWallet('ACTIVITY_TYPE_UPDATE_WALLET'),
   @JsonValue('ACTIVITY_TYPE_UPDATE_POLICY_V2')
@@ -490,7 +499,8 @@ enum CreateReadWriteSessionRequestType {
 
   @JsonValue('ACTIVITY_TYPE_CREATE_READ_WRITE_SESSION_V2')
   activityTypeCreateReadWriteSessionV2(
-      'ACTIVITY_TYPE_CREATE_READ_WRITE_SESSION_V2');
+    'ACTIVITY_TYPE_CREATE_READ_WRITE_SESSION_V2',
+  );
 
   final String? value;
 
@@ -503,7 +513,8 @@ enum CreateSubOrganizationRequestType {
 
   @JsonValue('ACTIVITY_TYPE_CREATE_SUB_ORGANIZATION_V7')
   activityTypeCreateSubOrganizationV7(
-      'ACTIVITY_TYPE_CREATE_SUB_ORGANIZATION_V7');
+    'ACTIVITY_TYPE_CREATE_SUB_ORGANIZATION_V7',
+  );
 
   final String? value;
 
@@ -578,7 +589,8 @@ enum CredentialType {
   credentialTypeOtpAuthKeyP256('CREDENTIAL_TYPE_OTP_AUTH_KEY_P256'),
   @JsonValue('CREDENTIAL_TYPE_READ_WRITE_SESSION_KEY_P256')
   credentialTypeReadWriteSessionKeyP256(
-      'CREDENTIAL_TYPE_READ_WRITE_SESSION_KEY_P256'),
+    'CREDENTIAL_TYPE_READ_WRITE_SESSION_KEY_P256',
+  ),
   @JsonValue('CREDENTIAL_TYPE_OAUTH_KEY_P256')
   credentialTypeOauthKeyP256('CREDENTIAL_TYPE_OAUTH_KEY_P256'),
   @JsonValue('CREDENTIAL_TYPE_LOGIN')
@@ -1113,7 +1125,8 @@ enum RemoveOrganizationFeatureRequestType {
 
   @JsonValue('ACTIVITY_TYPE_REMOVE_ORGANIZATION_FEATURE')
   activityTypeRemoveOrganizationFeature(
-      'ACTIVITY_TYPE_REMOVE_ORGANIZATION_FEATURE');
+    'ACTIVITY_TYPE_REMOVE_ORGANIZATION_FEATURE',
+  );
 
   final String? value;
 
