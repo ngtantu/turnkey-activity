@@ -660,7 +660,7 @@ class TurnkeyProvider with ChangeNotifier {
             parameters: parameters));
 
     final signTransactionResult =
-        response.activity.result.signTransactionResult;
+        response.activity.result?.signTransactionResult;
     if (signTransactionResult == null) {
       throw Exception("Failed to sign transaction");
     }
@@ -694,7 +694,7 @@ class TurnkeyProvider with ChangeNotifier {
             organizationId: session!.user!.organizationId,
             parameters: parameters));
     final activity = response.activity;
-    if (activity.result.createWalletResult?.walletId != null) {
+    if (activity.result?.createWalletResult?.walletId != null) {
       await refreshUser();
     }
 
@@ -723,7 +723,7 @@ class TurnkeyProvider with ChangeNotifier {
             parameters: InitImportWalletIntent(userId: session!.user!.id)));
 
     final importBundle =
-        initResponse.activity.result.initImportWalletResult?.importBundle;
+        initResponse.activity.result?.initImportWalletResult?.importBundle;
 
     if (importBundle == null) {
       throw Exception("Failed to get import bundle");
@@ -747,7 +747,7 @@ class TurnkeyProvider with ChangeNotifier {
                 encryptedBundle: encryptedBundle,
                 accounts: accounts)));
     final activity = response.activity;
-    if (activity.result.importWalletResult?.walletId != null) {
+    if (activity.result?.importWalletResult?.walletId != null) {
       await refreshUser();
     }
   }
@@ -772,7 +772,7 @@ class TurnkeyProvider with ChangeNotifier {
             parameters: ExportWalletIntent(
                 walletId: walletId, targetPublicKey: targetPublicKey)));
     final exportBundle =
-        response.activity.result.exportWalletResult?.exportBundle;
+        response.activity.result?.exportWalletResult?.exportBundle;
 
     final embeddedKey = await getEmbeddedKey();
     if (exportBundle == null || embeddedKey == null) {

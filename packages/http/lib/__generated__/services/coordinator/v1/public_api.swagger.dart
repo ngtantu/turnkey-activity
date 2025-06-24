@@ -303,7 +303,7 @@ class Activity {
     required this.status,
     required this.type,
     required this.intent,
-    required this.result,
+    this.result,
     required this.votes,
     required this.fingerprint,
     required this.canApprove,
@@ -338,7 +338,7 @@ class Activity {
   @JsonKey(name: 'intent')
   final Intent intent;
   @JsonKey(name: 'result')
-  final Result result;
+  final Result? result;
   @JsonKey(name: 'votes', defaultValue: <Vote>[])
   final List<Vote> votes;
   @JsonKey(name: 'fingerprint')

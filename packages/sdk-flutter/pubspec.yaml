@@ -13,11 +13,15 @@ dependencies:
   turnkey_crypto: ^0.1.1
   turnkey_encoding: ^0.1.0
   turnkey_flutter_passkey_stamper: ^0.1.1
-  turnkey_api_key_stamper: ^0.1.1
-  turnkey_http: ^0.2.0
   app_links: ^6.3.3
   flutter_inappwebview: ^6.1.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+dependency_overrides:
+  turnkey_api_key_stamper:
+    path: ../api-key-stamper
+  turnkey_http:
+    path: ../http
