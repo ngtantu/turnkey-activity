@@ -84,7 +84,9 @@ Activity _$ActivityFromJson(Map<String, dynamic> json) => Activity(
       status: activityStatusFromJson(json['status']),
       type: activityTypeFromJson(json['type']),
       intent: Intent.fromJson(json['intent'] as Map<String, dynamic>),
-      result: Result.fromJson(json['result'] as Map<String, dynamic>),
+      result: json['result'] == null
+          ? null
+          : Result.fromJson(json['result'] as Map<String, dynamic>),
       votes: (json['votes'] as List<dynamic>?)
               ?.map((e) => Vote.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -107,7 +109,7 @@ Map<String, dynamic> _$ActivityToJson(Activity instance) => <String, dynamic>{
       'status': activityStatusToJson(instance.status),
       'type': activityTypeToJson(instance.type),
       'intent': instance.intent.toJson(),
-      'result': instance.result.toJson(),
+      'result': instance.result?.toJson(),
       'votes': instance.votes.map((e) => e.toJson()).toList(),
       'fingerprint': instance.fingerprint,
       'canApprove': instance.canApprove,

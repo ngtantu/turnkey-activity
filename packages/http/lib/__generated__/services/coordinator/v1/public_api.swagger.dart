@@ -80,13 +80,11 @@ extension $AcceptInvitationIntentExtension on AcceptInvitationIntent {
     Wrapped<AuthenticatorParams>? authenticator,
   }) {
     return AcceptInvitationIntent(
-      invitationId: (invitationId != null
-          ? invitationId.value
-          : this.invitationId),
+      invitationId:
+          (invitationId != null ? invitationId.value : this.invitationId),
       userId: (userId != null ? userId.value : this.userId),
-      authenticator: (authenticator != null
-          ? authenticator.value
-          : this.authenticator),
+      authenticator:
+          (authenticator != null ? authenticator.value : this.authenticator),
     );
   }
 }
@@ -161,13 +159,11 @@ extension $AcceptInvitationIntentV2Extension on AcceptInvitationIntentV2 {
     Wrapped<AuthenticatorParamsV2>? authenticator,
   }) {
     return AcceptInvitationIntentV2(
-      invitationId: (invitationId != null
-          ? invitationId.value
-          : this.invitationId),
+      invitationId:
+          (invitationId != null ? invitationId.value : this.invitationId),
       userId: (userId != null ? userId.value : this.userId),
-      authenticator: (authenticator != null
-          ? authenticator.value
-          : this.authenticator),
+      authenticator:
+          (authenticator != null ? authenticator.value : this.authenticator),
     );
   }
 }
@@ -227,9 +223,8 @@ extension $AcceptInvitationResultExtension on AcceptInvitationResult {
     Wrapped<String>? userId,
   }) {
     return AcceptInvitationResult(
-      invitationId: (invitationId != null
-          ? invitationId.value
-          : this.invitationId),
+      invitationId:
+          (invitationId != null ? invitationId.value : this.invitationId),
       userId: (userId != null ? userId.value : this.userId),
     );
   }
@@ -333,7 +328,7 @@ class Activity {
     required this.status,
     required this.type,
     required this.intent,
-    required this.result,
+    this.result,
     required this.votes,
     required this.fingerprint,
     required this.canApprove,
@@ -368,7 +363,7 @@ class Activity {
   @JsonKey(name: 'intent')
   final Intent intent;
   @JsonKey(name: 'result')
-  final Result result;
+  final Result? result;
   @JsonKey(name: 'votes', defaultValue: <Vote>[])
   final List<Vote> votes;
   @JsonKey(name: 'fingerprint')
@@ -506,9 +501,8 @@ extension $ActivityExtension on Activity {
   }) {
     return Activity(
       id: (id != null ? id.value : this.id),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       status: (status != null ? status.value : this.status),
       type: (type != null ? type.value : this.type),
       intent: (intent != null ? intent.value : this.intent),
@@ -1132,9 +1126,8 @@ extension $ApproveActivityRequestExtension on ApproveActivityRequest {
     return ApproveActivityRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -1229,12 +1222,10 @@ extension $AttestationExtension on Attestation {
     Wrapped<List<enums.AuthenticatorTransport>>? transports,
   }) {
     return Attestation(
-      credentialId: (credentialId != null
-          ? credentialId.value
-          : this.credentialId),
-      clientDataJson: (clientDataJson != null
-          ? clientDataJson.value
-          : this.clientDataJson),
+      credentialId:
+          (credentialId != null ? credentialId.value : this.credentialId),
+      clientDataJson:
+          (clientDataJson != null ? clientDataJson.value : this.clientDataJson),
       attestationObject: (attestationObject != null
           ? attestationObject.value
           : this.attestationObject),
@@ -1403,9 +1394,8 @@ extension $AuthenticatorExtension on Authenticator {
           ? attestationType.value
           : this.attestationType),
       aaguid: (aaguid != null ? aaguid.value : this.aaguid),
-      credentialId: (credentialId != null
-          ? credentialId.value
-          : this.credentialId),
+      credentialId:
+          (credentialId != null ? credentialId.value : this.credentialId),
       model: (model != null ? model.value : this.model),
       credential: (credential != null ? credential.value : this.credential),
       authenticatorId: (authenticatorId != null
@@ -1431,7 +1421,8 @@ class AuthenticatorAttestationResponse {
 
   factory AuthenticatorAttestationResponse.fromJson(
     Map<String, dynamic> json,
-  ) => _$AuthenticatorAttestationResponseFromJson(json);
+  ) =>
+      _$AuthenticatorAttestationResponseFromJson(json);
 
   static const toJsonFactory = _$AuthenticatorAttestationResponseToJson;
   Map<String, dynamic> toJson() =>
@@ -1455,7 +1446,7 @@ class AuthenticatorAttestationResponse {
         authenticatorAttestationResponseAuthenticatorAttachmentNullableFromJson,
   )
   final enums.AuthenticatorAttestationResponseAuthenticatorAttachment?
-  authenticatorAttachment;
+      authenticatorAttachment;
   static const fromJsonFactory = _$AuthenticatorAttestationResponseFromJson;
 
   @override
@@ -1506,7 +1497,7 @@ extension $AuthenticatorAttestationResponseExtension
     String? attestationObject,
     List<enums.AuthenticatorTransport>? transports,
     enums.AuthenticatorAttestationResponseAuthenticatorAttachment?
-    authenticatorAttachment,
+        authenticatorAttachment,
   }) {
     return AuthenticatorAttestationResponse(
       clientDataJson: clientDataJson ?? this.clientDataJson,
@@ -1522,12 +1513,11 @@ extension $AuthenticatorAttestationResponseExtension
     Wrapped<String>? attestationObject,
     Wrapped<List<enums.AuthenticatorTransport>?>? transports,
     Wrapped<enums.AuthenticatorAttestationResponseAuthenticatorAttachment?>?
-    authenticatorAttachment,
+        authenticatorAttachment,
   }) {
     return AuthenticatorAttestationResponse(
-      clientDataJson: (clientDataJson != null
-          ? clientDataJson.value
-          : this.clientDataJson),
+      clientDataJson:
+          (clientDataJson != null ? clientDataJson.value : this.clientDataJson),
       attestationObject: (attestationObject != null
           ? attestationObject.value
           : this.attestationObject),
@@ -1977,9 +1967,8 @@ extension $CreateApiKeysRequestExtension on CreateApiKeysRequest {
     return CreateApiKeysRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -2074,9 +2063,8 @@ extension $CreateApiOnlyUsersIntentExtension on CreateApiOnlyUsersIntent {
     Wrapped<List<ApiOnlyUserParams>>? apiOnlyUsers,
   }) {
     return CreateApiOnlyUsersIntent(
-      apiOnlyUsers: (apiOnlyUsers != null
-          ? apiOnlyUsers.value
-          : this.apiOnlyUsers),
+      apiOnlyUsers:
+          (apiOnlyUsers != null ? apiOnlyUsers.value : this.apiOnlyUsers),
     );
   }
 }
@@ -2181,9 +2169,8 @@ extension $CreateAuthenticatorsIntentExtension on CreateAuthenticatorsIntent {
     Wrapped<String>? userId,
   }) {
     return CreateAuthenticatorsIntent(
-      authenticators: (authenticators != null
-          ? authenticators.value
-          : this.authenticators),
+      authenticators:
+          (authenticators != null ? authenticators.value : this.authenticators),
       userId: (userId != null ? userId.value : this.userId),
     );
   }
@@ -2248,9 +2235,8 @@ extension $CreateAuthenticatorsIntentV2Extension
     Wrapped<String>? userId,
   }) {
     return CreateAuthenticatorsIntentV2(
-      authenticators: (authenticators != null
-          ? authenticators.value
-          : this.authenticators),
+      authenticators:
+          (authenticators != null ? authenticators.value : this.authenticators),
       userId: (userId != null ? userId.value : this.userId),
     );
   }
@@ -2344,9 +2330,8 @@ extension $CreateAuthenticatorsRequestExtension on CreateAuthenticatorsRequest {
     return CreateAuthenticatorsRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -2541,9 +2526,8 @@ extension $CreateInvitationsRequestExtension on CreateInvitationsRequest {
     return CreateInvitationsRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -2593,9 +2577,8 @@ extension $CreateInvitationsResultExtension on CreateInvitationsResult {
     Wrapped<List<String>>? invitationIds,
   }) {
     return CreateInvitationsResult(
-      invitationIds: (invitationIds != null
-          ? invitationIds.value
-          : this.invitationIds),
+      invitationIds:
+          (invitationIds != null ? invitationIds.value : this.invitationIds),
     );
   }
 }
@@ -2659,9 +2642,8 @@ extension $CreateOauthProvidersIntentExtension on CreateOauthProvidersIntent {
   }) {
     return CreateOauthProvidersIntent(
       userId: (userId != null ? userId.value : this.userId),
-      oauthProviders: (oauthProviders != null
-          ? oauthProviders.value
-          : this.oauthProviders),
+      oauthProviders:
+          (oauthProviders != null ? oauthProviders.value : this.oauthProviders),
     );
   }
 }
@@ -2754,9 +2736,8 @@ extension $CreateOauthProvidersRequestExtension on CreateOauthProvidersRequest {
     return CreateOauthProvidersRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -3048,9 +3029,8 @@ extension $CreateOrganizationResultExtension on CreateOrganizationResult {
 
   CreateOrganizationResult copyWithWrapped({Wrapped<String>? organizationId}) {
     return CreateOrganizationResult(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
     );
   }
 }
@@ -3190,9 +3170,8 @@ extension $CreatePoliciesRequestExtension on CreatePoliciesRequest {
     return CreatePoliciesRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -3605,9 +3584,8 @@ extension $CreatePolicyRequestExtension on CreatePolicyRequest {
     return CreatePolicyRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -3722,9 +3700,8 @@ extension $CreatePrivateKeyTagIntentExtension on CreatePrivateKeyTagIntent {
       privateKeyTagName: (privateKeyTagName != null
           ? privateKeyTagName.value
           : this.privateKeyTagName),
-      privateKeyIds: (privateKeyIds != null
-          ? privateKeyIds.value
-          : this.privateKeyIds),
+      privateKeyIds:
+          (privateKeyIds != null ? privateKeyIds.value : this.privateKeyIds),
     );
   }
 }
@@ -3817,9 +3794,8 @@ extension $CreatePrivateKeyTagRequestExtension on CreatePrivateKeyTagRequest {
     return CreatePrivateKeyTagRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -3889,9 +3865,8 @@ extension $CreatePrivateKeyTagResultExtension on CreatePrivateKeyTagResult {
       privateKeyTagId: (privateKeyTagId != null
           ? privateKeyTagId.value
           : this.privateKeyTagId),
-      privateKeyIds: (privateKeyIds != null
-          ? privateKeyIds.value
-          : this.privateKeyIds),
+      privateKeyIds:
+          (privateKeyIds != null ? privateKeyIds.value : this.privateKeyIds),
     );
   }
 }
@@ -4082,9 +4057,8 @@ extension $CreatePrivateKeysRequestExtension on CreatePrivateKeysRequest {
     return CreatePrivateKeysRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -4134,9 +4108,8 @@ extension $CreatePrivateKeysResultExtension on CreatePrivateKeysResult {
     Wrapped<List<String>>? privateKeyIds,
   }) {
     return CreatePrivateKeysResult(
-      privateKeyIds: (privateKeyIds != null
-          ? privateKeyIds.value
-          : this.privateKeyIds),
+      privateKeyIds:
+          (privateKeyIds != null ? privateKeyIds.value : this.privateKeyIds),
     );
   }
 }
@@ -4298,9 +4271,8 @@ extension $CreateReadOnlySessionRequestExtension
     return CreateReadOnlySessionRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -4412,18 +4384,16 @@ extension $CreateReadOnlySessionResultExtension on CreateReadOnlySessionResult {
     Wrapped<String>? sessionExpiry,
   }) {
     return CreateReadOnlySessionResult(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       organizationName: (organizationName != null
           ? organizationName.value
           : this.organizationName),
       userId: (userId != null ? userId.value : this.userId),
       username: (username != null ? username.value : this.username),
       session: (session != null ? session.value : this.session),
-      sessionExpiry: (sessionExpiry != null
-          ? sessionExpiry.value
-          : this.sessionExpiry),
+      sessionExpiry:
+          (sessionExpiry != null ? sessionExpiry.value : this.sessionExpiry),
     );
   }
 }
@@ -4722,9 +4692,8 @@ extension $CreateReadWriteSessionRequestExtension
     return CreateReadWriteSessionRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -4837,9 +4806,8 @@ extension $CreateReadWriteSessionResultExtension
     Wrapped<String>? credentialBundle,
   }) {
     return CreateReadWriteSessionResult(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       organizationName: (organizationName != null
           ? organizationName.value
           : this.organizationName),
@@ -4960,9 +4928,8 @@ extension $CreateReadWriteSessionResultV2Extension
     Wrapped<String>? credentialBundle,
   }) {
     return CreateReadWriteSessionResultV2(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       organizationName: (organizationName != null
           ? organizationName.value
           : this.organizationName),
@@ -5745,9 +5712,8 @@ extension $CreateSubOrganizationIntentV7Extension
       disableEmailAuth: (disableEmailAuth != null
           ? disableEmailAuth.value
           : this.disableEmailAuth),
-      disableSmsAuth: (disableSmsAuth != null
-          ? disableSmsAuth.value
-          : this.disableSmsAuth),
+      disableSmsAuth:
+          (disableSmsAuth != null ? disableSmsAuth.value : this.disableSmsAuth),
       disableOtpEmailAuth: (disableOtpEmailAuth != null
           ? disableOtpEmailAuth.value
           : this.disableOtpEmailAuth),
@@ -5844,9 +5810,8 @@ extension $CreateSubOrganizationRequestExtension
     return CreateSubOrganizationRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -6470,9 +6435,8 @@ extension $CreateUserTagRequestExtension on CreateUserTagRequest {
     return CreateUserTagRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -6748,9 +6712,8 @@ extension $CreateUsersRequestExtension on CreateUsersRequest {
     return CreateUsersRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -6953,9 +6916,8 @@ extension $CreateWalletAccountsRequestExtension on CreateWalletAccountsRequest {
     return CreateWalletAccountsRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -7083,9 +7045,8 @@ extension $CreateWalletIntentExtension on CreateWalletIntent {
     return CreateWalletIntent(
       walletName: (walletName != null ? walletName.value : this.walletName),
       accounts: (accounts != null ? accounts.value : this.accounts),
-      mnemonicLength: (mnemonicLength != null
-          ? mnemonicLength.value
-          : this.mnemonicLength),
+      mnemonicLength:
+          (mnemonicLength != null ? mnemonicLength.value : this.mnemonicLength),
     );
   }
 }
@@ -7178,9 +7139,8 @@ extension $CreateWalletRequestExtension on CreateWalletRequest {
     return CreateWalletRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -7253,7 +7213,8 @@ class CredPropsAuthenticationExtensionsClientOutputs {
 
   factory CredPropsAuthenticationExtensionsClientOutputs.fromJson(
     Map<String, dynamic> json,
-  ) => _$CredPropsAuthenticationExtensionsClientOutputsFromJson(json);
+  ) =>
+      _$CredPropsAuthenticationExtensionsClientOutputsFromJson(json);
 
   static const toJsonFactory =
       _$CredPropsAuthenticationExtensionsClientOutputsToJson;
@@ -7442,9 +7403,8 @@ extension $DeleteApiKeysRequestExtension on DeleteApiKeysRequest {
     return DeleteApiKeysRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -7649,9 +7609,8 @@ extension $DeleteAuthenticatorsRequestExtension on DeleteAuthenticatorsRequest {
     return DeleteAuthenticatorsRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -7751,9 +7710,8 @@ extension $DeleteInvitationIntentExtension on DeleteInvitationIntent {
 
   DeleteInvitationIntent copyWithWrapped({Wrapped<String>? invitationId}) {
     return DeleteInvitationIntent(
-      invitationId: (invitationId != null
-          ? invitationId.value
-          : this.invitationId),
+      invitationId:
+          (invitationId != null ? invitationId.value : this.invitationId),
     );
   }
 }
@@ -7846,9 +7804,8 @@ extension $DeleteInvitationRequestExtension on DeleteInvitationRequest {
     return DeleteInvitationRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -7896,9 +7853,8 @@ extension $DeleteInvitationResultExtension on DeleteInvitationResult {
 
   DeleteInvitationResult copyWithWrapped({Wrapped<String>? invitationId}) {
     return DeleteInvitationResult(
-      invitationId: (invitationId != null
-          ? invitationId.value
-          : this.invitationId),
+      invitationId:
+          (invitationId != null ? invitationId.value : this.invitationId),
     );
   }
 }
@@ -8055,9 +8011,8 @@ extension $DeleteOauthProvidersRequestExtension on DeleteOauthProvidersRequest {
     return DeleteOauthProvidersRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -8155,9 +8110,8 @@ extension $DeleteOrganizationIntentExtension on DeleteOrganizationIntent {
 
   DeleteOrganizationIntent copyWithWrapped({Wrapped<String>? organizationId}) {
     return DeleteOrganizationIntent(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
     );
   }
 }
@@ -8205,9 +8159,8 @@ extension $DeleteOrganizationResultExtension on DeleteOrganizationResult {
 
   DeleteOrganizationResult copyWithWrapped({Wrapped<String>? organizationId}) {
     return DeleteOrganizationResult(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
     );
   }
 }
@@ -8449,9 +8402,8 @@ extension $DeletePolicyRequestExtension on DeletePolicyRequest {
     return DeletePolicyRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -8642,9 +8594,8 @@ extension $DeletePrivateKeyTagsRequestExtension on DeletePrivateKeyTagsRequest {
     return DeletePrivateKeyTagsRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -8714,9 +8665,8 @@ extension $DeletePrivateKeyTagsResultExtension on DeletePrivateKeyTagsResult {
       privateKeyTagIds: (privateKeyTagIds != null
           ? privateKeyTagIds.value
           : this.privateKeyTagIds),
-      privateKeyIds: (privateKeyIds != null
-          ? privateKeyIds.value
-          : this.privateKeyIds),
+      privateKeyIds:
+          (privateKeyIds != null ? privateKeyIds.value : this.privateKeyIds),
     );
   }
 }
@@ -8782,9 +8732,8 @@ extension $DeletePrivateKeysIntentExtension on DeletePrivateKeysIntent {
     Wrapped<bool?>? deleteWithoutExport,
   }) {
     return DeletePrivateKeysIntent(
-      privateKeyIds: (privateKeyIds != null
-          ? privateKeyIds.value
-          : this.privateKeyIds),
+      privateKeyIds:
+          (privateKeyIds != null ? privateKeyIds.value : this.privateKeyIds),
       deleteWithoutExport: (deleteWithoutExport != null
           ? deleteWithoutExport.value
           : this.deleteWithoutExport),
@@ -8880,9 +8829,8 @@ extension $DeletePrivateKeysRequestExtension on DeletePrivateKeysRequest {
     return DeletePrivateKeysRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -8932,9 +8880,8 @@ extension $DeletePrivateKeysResultExtension on DeletePrivateKeysResult {
     Wrapped<List<String>>? privateKeyIds,
   }) {
     return DeletePrivateKeysResult(
-      privateKeyIds: (privateKeyIds != null
-          ? privateKeyIds.value
-          : this.privateKeyIds),
+      privateKeyIds:
+          (privateKeyIds != null ? privateKeyIds.value : this.privateKeyIds),
     );
   }
 }
@@ -9080,9 +9027,8 @@ extension $DeleteSubOrganizationRequestExtension
     return DeleteSubOrganizationRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -9273,9 +9219,8 @@ extension $DeleteUserTagsRequestExtension on DeleteUserTagsRequest {
     return DeleteUserTagsRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -9472,9 +9417,8 @@ extension $DeleteUsersRequestExtension on DeleteUsersRequest {
     return DeleteUsersRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -9679,9 +9623,8 @@ extension $DeleteWalletsRequestExtension on DeleteWalletsRequest {
     return DeleteWalletsRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -9774,9 +9717,8 @@ extension $DisablePrivateKeyIntentExtension on DisablePrivateKeyIntent {
 
   DisablePrivateKeyIntent copyWithWrapped({Wrapped<String>? privateKeyId}) {
     return DisablePrivateKeyIntent(
-      privateKeyId: (privateKeyId != null
-          ? privateKeyId.value
-          : this.privateKeyId),
+      privateKeyId:
+          (privateKeyId != null ? privateKeyId.value : this.privateKeyId),
     );
   }
 }
@@ -9823,9 +9765,8 @@ extension $DisablePrivateKeyResultExtension on DisablePrivateKeyResult {
 
   DisablePrivateKeyResult copyWithWrapped({Wrapped<String>? privateKeyId}) {
     return DisablePrivateKeyResult(
-      privateKeyId: (privateKeyId != null
-          ? privateKeyId.value
-          : this.privateKeyId),
+      privateKeyId:
+          (privateKeyId != null ? privateKeyId.value : this.privateKeyId),
     );
   }
 }
@@ -10264,9 +10205,8 @@ extension $EmailAuthRequestExtension on EmailAuthRequest {
     return EmailAuthRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -10501,9 +10441,8 @@ extension $ExportPrivateKeyIntentExtension on ExportPrivateKeyIntent {
     Wrapped<String>? targetPublicKey,
   }) {
     return ExportPrivateKeyIntent(
-      privateKeyId: (privateKeyId != null
-          ? privateKeyId.value
-          : this.privateKeyId),
+      privateKeyId:
+          (privateKeyId != null ? privateKeyId.value : this.privateKeyId),
       targetPublicKey: (targetPublicKey != null
           ? targetPublicKey.value
           : this.targetPublicKey),
@@ -10599,9 +10538,8 @@ extension $ExportPrivateKeyRequestExtension on ExportPrivateKeyRequest {
     return ExportPrivateKeyRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -10668,12 +10606,10 @@ extension $ExportPrivateKeyResultExtension on ExportPrivateKeyResult {
     Wrapped<String>? exportBundle,
   }) {
     return ExportPrivateKeyResult(
-      privateKeyId: (privateKeyId != null
-          ? privateKeyId.value
-          : this.privateKeyId),
-      exportBundle: (exportBundle != null
-          ? exportBundle.value
-          : this.exportBundle),
+      privateKeyId:
+          (privateKeyId != null ? privateKeyId.value : this.privateKeyId),
+      exportBundle:
+          (exportBundle != null ? exportBundle.value : this.exportBundle),
     );
   }
 }
@@ -10835,9 +10771,8 @@ extension $ExportWalletAccountRequestExtension on ExportWalletAccountRequest {
     return ExportWalletAccountRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -10902,9 +10837,8 @@ extension $ExportWalletAccountResultExtension on ExportWalletAccountResult {
   }) {
     return ExportWalletAccountResult(
       address: (address != null ? address.value : this.address),
-      exportBundle: (exportBundle != null
-          ? exportBundle.value
-          : this.exportBundle),
+      exportBundle:
+          (exportBundle != null ? exportBundle.value : this.exportBundle),
     );
   }
 }
@@ -11083,9 +11017,8 @@ extension $ExportWalletRequestExtension on ExportWalletRequest {
     return ExportWalletRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -11150,9 +11083,8 @@ extension $ExportWalletResultExtension on ExportWalletResult {
   }) {
     return ExportWalletResult(
       walletId: (walletId != null ? walletId.value : this.walletId),
-      exportBundle: (exportBundle != null
-          ? exportBundle.value
-          : this.exportBundle),
+      exportBundle:
+          (exportBundle != null ? exportBundle.value : this.exportBundle),
     );
   }
 }
@@ -11306,18 +11238,15 @@ extension $GetActivitiesRequestExtension on GetActivitiesRequest {
     Wrapped<List<enums.ActivityType>?>? filterByType,
   }) {
     return GetActivitiesRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
-      filterByStatus: (filterByStatus != null
-          ? filterByStatus.value
-          : this.filterByStatus),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
+      filterByStatus:
+          (filterByStatus != null ? filterByStatus.value : this.filterByStatus),
       paginationOptions: (paginationOptions != null
           ? paginationOptions.value
           : this.paginationOptions),
-      filterByType: (filterByType != null
-          ? filterByType.value
-          : this.filterByType),
+      filterByType:
+          (filterByType != null ? filterByType.value : this.filterByType),
     );
   }
 }
@@ -11425,9 +11354,8 @@ extension $GetActivityRequestExtension on GetActivityRequest {
     Wrapped<String>? activityId,
   }) {
     return GetActivityRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       activityId: (activityId != null ? activityId.value : this.activityId),
     );
   }
@@ -11491,9 +11419,8 @@ extension $GetApiKeyRequestExtension on GetApiKeyRequest {
     Wrapped<String>? apiKeyId,
   }) {
     return GetApiKeyRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       apiKeyId: (apiKeyId != null ? apiKeyId.value : this.apiKeyId),
     );
   }
@@ -11593,9 +11520,8 @@ extension $GetApiKeysRequestExtension on GetApiKeysRequest {
     Wrapped<String?>? userId,
   }) {
     return GetApiKeysRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       userId: (userId != null ? userId.value : this.userId),
     );
   }
@@ -11704,9 +11630,8 @@ extension $GetAuthenticatorRequestExtension on GetAuthenticatorRequest {
     Wrapped<String>? authenticatorId,
   }) {
     return GetAuthenticatorRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       authenticatorId: (authenticatorId != null
           ? authenticatorId.value
           : this.authenticatorId),
@@ -11758,9 +11683,8 @@ extension $GetAuthenticatorResponseExtension on GetAuthenticatorResponse {
     Wrapped<Authenticator>? authenticator,
   }) {
     return GetAuthenticatorResponse(
-      authenticator: (authenticator != null
-          ? authenticator.value
-          : this.authenticator),
+      authenticator:
+          (authenticator != null ? authenticator.value : this.authenticator),
     );
   }
 }
@@ -11820,9 +11744,8 @@ extension $GetAuthenticatorsRequestExtension on GetAuthenticatorsRequest {
     Wrapped<String>? userId,
   }) {
     return GetAuthenticatorsRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       userId: (userId != null ? userId.value : this.userId),
     );
   }
@@ -11873,9 +11796,8 @@ extension $GetAuthenticatorsResponseExtension on GetAuthenticatorsResponse {
     Wrapped<List<Authenticator>>? authenticators,
   }) {
     return GetAuthenticatorsResponse(
-      authenticators: (authenticators != null
-          ? authenticators.value
-          : this.authenticators),
+      authenticators:
+          (authenticators != null ? authenticators.value : this.authenticators),
     );
   }
 }
@@ -11932,9 +11854,8 @@ extension $GetOauthProvidersRequestExtension on GetOauthProvidersRequest {
     Wrapped<String?>? userId,
   }) {
     return GetOauthProvidersRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       userId: (userId != null ? userId.value : this.userId),
     );
   }
@@ -11985,9 +11906,8 @@ extension $GetOauthProvidersResponseExtension on GetOauthProvidersResponse {
     Wrapped<List<OauthProvider>>? oauthProviders,
   }) {
     return GetOauthProvidersResponse(
-      oauthProviders: (oauthProviders != null
-          ? oauthProviders.value
-          : this.oauthProviders),
+      oauthProviders:
+          (oauthProviders != null ? oauthProviders.value : this.oauthProviders),
     );
   }
 }
@@ -12038,9 +11958,8 @@ extension $GetOrganizationConfigsRequestExtension
     Wrapped<String>? organizationId,
   }) {
     return GetOrganizationConfigsRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
     );
   }
 }
@@ -12131,9 +12050,8 @@ extension $GetPoliciesRequestExtension on GetPoliciesRequest {
 
   GetPoliciesRequest copyWithWrapped({Wrapped<String>? organizationId}) {
     return GetPoliciesRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
     );
   }
 }
@@ -12241,9 +12159,8 @@ extension $GetPolicyRequestExtension on GetPolicyRequest {
     Wrapped<String>? policyId,
   }) {
     return GetPolicyRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       policyId: (policyId != null ? policyId.value : this.policyId),
     );
   }
@@ -12352,12 +12269,10 @@ extension $GetPrivateKeyRequestExtension on GetPrivateKeyRequest {
     Wrapped<String>? privateKeyId,
   }) {
     return GetPrivateKeyRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
-      privateKeyId: (privateKeyId != null
-          ? privateKeyId.value
-          : this.privateKeyId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
+      privateKeyId:
+          (privateKeyId != null ? privateKeyId.value : this.privateKeyId),
     );
   }
 }
@@ -12450,9 +12365,8 @@ extension $GetPrivateKeysRequestExtension on GetPrivateKeysRequest {
 
   GetPrivateKeysRequest copyWithWrapped({Wrapped<String>? organizationId}) {
     return GetPrivateKeysRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
     );
   }
 }
@@ -12589,9 +12503,8 @@ extension $GetSubOrgIdsRequestExtension on GetSubOrgIdsRequest {
     Wrapped<Pagination?>? paginationOptions,
   }) {
     return GetSubOrgIdsRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       filterType: (filterType != null ? filterType.value : this.filterType),
       filterValue: (filterValue != null ? filterValue.value : this.filterValue),
       paginationOptions: (paginationOptions != null
@@ -12705,9 +12618,8 @@ extension $GetUserRequestExtension on GetUserRequest {
     Wrapped<String>? userId,
   }) {
     return GetUserRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       userId: (userId != null ? userId.value : this.userId),
     );
   }
@@ -12796,9 +12708,8 @@ extension $GetUsersRequestExtension on GetUsersRequest {
 
   GetUsersRequest copyWithWrapped({Wrapped<String>? organizationId}) {
     return GetUsersRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
     );
   }
 }
@@ -12928,9 +12839,8 @@ extension $GetVerifiedSubOrgIdsRequestExtension on GetVerifiedSubOrgIdsRequest {
     Wrapped<Pagination?>? paginationOptions,
   }) {
     return GetVerifiedSubOrgIdsRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       filterType: (filterType != null ? filterType.value : this.filterType),
       filterValue: (filterValue != null ? filterValue.value : this.filterValue),
       paginationOptions: (paginationOptions != null
@@ -13075,9 +12985,8 @@ extension $GetWalletAccountRequestExtension on GetWalletAccountRequest {
     Wrapped<String?>? path,
   }) {
     return GetWalletAccountRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       walletId: (walletId != null ? walletId.value : this.walletId),
       address: (address != null ? address.value : this.address),
       path: (path != null ? path.value : this.path),
@@ -13200,9 +13109,8 @@ extension $GetWalletAccountsRequestExtension on GetWalletAccountsRequest {
     Wrapped<Pagination?>? paginationOptions,
   }) {
     return GetWalletAccountsRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       walletId: (walletId != null ? walletId.value : this.walletId),
       paginationOptions: (paginationOptions != null
           ? paginationOptions.value
@@ -13316,9 +13224,8 @@ extension $GetWalletRequestExtension on GetWalletRequest {
     Wrapped<String>? walletId,
   }) {
     return GetWalletRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       walletId: (walletId != null ? walletId.value : this.walletId),
     );
   }
@@ -13409,9 +13316,8 @@ extension $GetWalletsRequestExtension on GetWalletsRequest {
 
   GetWalletsRequest copyWithWrapped({Wrapped<String>? organizationId}) {
     return GetWalletsRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
     );
   }
 }
@@ -13501,9 +13407,8 @@ extension $GetWhoamiRequestExtension on GetWhoamiRequest {
 
   GetWhoamiRequest copyWithWrapped({Wrapped<String>? organizationId}) {
     return GetWhoamiRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
     );
   }
 }
@@ -13590,9 +13495,8 @@ extension $GetWhoamiResponseExtension on GetWhoamiResponse {
     Wrapped<String>? username,
   }) {
     return GetWhoamiResponse(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       organizationName: (organizationName != null
           ? organizationName.value
           : this.organizationName),
@@ -13698,16 +13602,14 @@ extension $ImportPrivateKeyIntentExtension on ImportPrivateKeyIntent {
   }) {
     return ImportPrivateKeyIntent(
       userId: (userId != null ? userId.value : this.userId),
-      privateKeyName: (privateKeyName != null
-          ? privateKeyName.value
-          : this.privateKeyName),
+      privateKeyName:
+          (privateKeyName != null ? privateKeyName.value : this.privateKeyName),
       encryptedBundle: (encryptedBundle != null
           ? encryptedBundle.value
           : this.encryptedBundle),
       curve: (curve != null ? curve.value : this.curve),
-      addressFormats: (addressFormats != null
-          ? addressFormats.value
-          : this.addressFormats),
+      addressFormats:
+          (addressFormats != null ? addressFormats.value : this.addressFormats),
     );
   }
 }
@@ -13800,9 +13702,8 @@ extension $ImportPrivateKeyRequestExtension on ImportPrivateKeyRequest {
     return ImportPrivateKeyRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -13869,9 +13770,8 @@ extension $ImportPrivateKeyResultExtension on ImportPrivateKeyResult {
     Wrapped<List<ActivityV1Address>>? addresses,
   }) {
     return ImportPrivateKeyResult(
-      privateKeyId: (privateKeyId != null
-          ? privateKeyId.value
-          : this.privateKeyId),
+      privateKeyId:
+          (privateKeyId != null ? privateKeyId.value : this.privateKeyId),
       addresses: (addresses != null ? addresses.value : this.addresses),
     );
   }
@@ -14057,9 +13957,8 @@ extension $ImportWalletRequestExtension on ImportWalletRequest {
     return ImportWalletRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -14256,9 +14155,8 @@ extension $InitImportPrivateKeyRequestExtension on InitImportPrivateKeyRequest {
     return InitImportPrivateKeyRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -14306,9 +14204,8 @@ extension $InitImportPrivateKeyResultExtension on InitImportPrivateKeyResult {
 
   InitImportPrivateKeyResult copyWithWrapped({Wrapped<String>? importBundle}) {
     return InitImportPrivateKeyResult(
-      importBundle: (importBundle != null
-          ? importBundle.value
-          : this.importBundle),
+      importBundle:
+          (importBundle != null ? importBundle.value : this.importBundle),
     );
   }
 }
@@ -14443,9 +14340,8 @@ extension $InitImportWalletRequestExtension on InitImportWalletRequest {
     return InitImportWalletRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -14493,9 +14389,8 @@ extension $InitImportWalletResultExtension on InitImportWalletResult {
 
   InitImportWalletResult copyWithWrapped({Wrapped<String>? importBundle}) {
     return InitImportWalletResult(
-      importBundle: (importBundle != null
-          ? importBundle.value
-          : this.importBundle),
+      importBundle:
+          (importBundle != null ? importBundle.value : this.importBundle),
     );
   }
 }
@@ -14645,9 +14540,8 @@ extension $InitOtpAuthIntentExtension on InitOtpAuthIntent {
       smsCustomization: (smsCustomization != null
           ? smsCustomization.value
           : this.smsCustomization),
-      userIdentifier: (userIdentifier != null
-          ? userIdentifier.value
-          : this.userIdentifier),
+      userIdentifier:
+          (userIdentifier != null ? userIdentifier.value : this.userIdentifier),
       sendFromEmailAddress: (sendFromEmailAddress != null
           ? sendFromEmailAddress.value
           : this.sendFromEmailAddress),
@@ -14831,15 +14725,13 @@ extension $InitOtpAuthIntentV2Extension on InitOtpAuthIntentV2 {
       smsCustomization: (smsCustomization != null
           ? smsCustomization.value
           : this.smsCustomization),
-      userIdentifier: (userIdentifier != null
-          ? userIdentifier.value
-          : this.userIdentifier),
+      userIdentifier:
+          (userIdentifier != null ? userIdentifier.value : this.userIdentifier),
       sendFromEmailAddress: (sendFromEmailAddress != null
           ? sendFromEmailAddress.value
           : this.sendFromEmailAddress),
-      alphanumeric: (alphanumeric != null
-          ? alphanumeric.value
-          : this.alphanumeric),
+      alphanumeric:
+          (alphanumeric != null ? alphanumeric.value : this.alphanumeric),
       sendFromEmailSenderName: (sendFromEmailSenderName != null
           ? sendFromEmailSenderName.value
           : this.sendFromEmailSenderName),
@@ -14938,9 +14830,8 @@ extension $InitOtpAuthRequestExtension on InitOtpAuthRequest {
     return InitOtpAuthRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -15210,15 +15101,13 @@ extension $InitOtpIntentExtension on InitOtpIntent {
       smsCustomization: (smsCustomization != null
           ? smsCustomization.value
           : this.smsCustomization),
-      userIdentifier: (userIdentifier != null
-          ? userIdentifier.value
-          : this.userIdentifier),
+      userIdentifier:
+          (userIdentifier != null ? userIdentifier.value : this.userIdentifier),
       sendFromEmailAddress: (sendFromEmailAddress != null
           ? sendFromEmailAddress.value
           : this.sendFromEmailAddress),
-      alphanumeric: (alphanumeric != null
-          ? alphanumeric.value
-          : this.alphanumeric),
+      alphanumeric:
+          (alphanumeric != null ? alphanumeric.value : this.alphanumeric),
       sendFromEmailSenderName: (sendFromEmailSenderName != null
           ? sendFromEmailSenderName.value
           : this.sendFromEmailSenderName),
@@ -15320,9 +15209,8 @@ extension $InitOtpRequestExtension on InitOtpRequest {
     return InitOtpRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -15553,9 +15441,8 @@ extension $InitUserEmailRecoveryRequestExtension
     return InitUserEmailRecoveryRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -16713,8 +16600,7 @@ extension $IntentExtension on Intent {
       recoverUserIntent: recoverUserIntent ?? this.recoverUserIntent,
       setOrganizationFeatureIntent:
           setOrganizationFeatureIntent ?? this.setOrganizationFeatureIntent,
-      removeOrganizationFeatureIntent:
-          removeOrganizationFeatureIntent ??
+      removeOrganizationFeatureIntent: removeOrganizationFeatureIntent ??
           this.removeOrganizationFeatureIntent,
       signRawPayloadIntentV2:
           signRawPayloadIntentV2 ?? this.signRawPayloadIntentV2,
@@ -17097,9 +16983,8 @@ extension $IntentExtension on Intent {
       initOtpAuthIntent: (initOtpAuthIntent != null
           ? initOtpAuthIntent.value
           : this.initOtpAuthIntent),
-      otpAuthIntent: (otpAuthIntent != null
-          ? otpAuthIntent.value
-          : this.otpAuthIntent),
+      otpAuthIntent:
+          (otpAuthIntent != null ? otpAuthIntent.value : this.otpAuthIntent),
       createSubOrganizationIntentV7: (createSubOrganizationIntentV7 != null
           ? createSubOrganizationIntentV7.value
           : this.createSubOrganizationIntentV7),
@@ -17115,15 +17000,13 @@ extension $IntentExtension on Intent {
       initOtpAuthIntentV2: (initOtpAuthIntentV2 != null
           ? initOtpAuthIntentV2.value
           : this.initOtpAuthIntentV2),
-      initOtpIntent: (initOtpIntent != null
-          ? initOtpIntent.value
-          : this.initOtpIntent),
+      initOtpIntent:
+          (initOtpIntent != null ? initOtpIntent.value : this.initOtpIntent),
       verifyOtpIntent: (verifyOtpIntent != null
           ? verifyOtpIntent.value
           : this.verifyOtpIntent),
-      otpLoginIntent: (otpLoginIntent != null
-          ? otpLoginIntent.value
-          : this.otpLoginIntent),
+      otpLoginIntent:
+          (otpLoginIntent != null ? otpLoginIntent.value : this.otpLoginIntent),
       stampLoginIntent: (stampLoginIntent != null
           ? stampLoginIntent.value
           : this.stampLoginIntent),
@@ -17245,9 +17128,8 @@ extension $InvitationParamsExtension on InvitationParams {
           ? receiverUserTags.value
           : this.receiverUserTags),
       accessType: (accessType != null ? accessType.value : this.accessType),
-      senderUserId: (senderUserId != null
-          ? senderUserId.value
-          : this.senderUserId),
+      senderUserId:
+          (senderUserId != null ? senderUserId.value : this.senderUserId),
     );
   }
 }
@@ -17295,9 +17177,8 @@ extension $ListPrivateKeyTagsRequestExtension on ListPrivateKeyTagsRequest {
 
   ListPrivateKeyTagsRequest copyWithWrapped({Wrapped<String>? organizationId}) {
     return ListPrivateKeyTagsRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
     );
   }
 }
@@ -17347,9 +17228,8 @@ extension $ListPrivateKeyTagsResponseExtension on ListPrivateKeyTagsResponse {
     Wrapped<List<V1Tag>>? privateKeyTags,
   }) {
     return ListPrivateKeyTagsResponse(
-      privateKeyTags: (privateKeyTags != null
-          ? privateKeyTags.value
-          : this.privateKeyTags),
+      privateKeyTags:
+          (privateKeyTags != null ? privateKeyTags.value : this.privateKeyTags),
     );
   }
 }
@@ -17397,9 +17277,8 @@ extension $ListUserTagsRequestExtension on ListUserTagsRequest {
 
   ListUserTagsRequest copyWithWrapped({Wrapped<String>? organizationId}) {
     return ListUserTagsRequest(
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
     );
   }
 }
@@ -17746,9 +17625,8 @@ extension $OauthLoginRequestExtension on OauthLoginRequest {
     return OauthLoginRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -17915,9 +17793,8 @@ extension $OauthProviderExtension on OauthProvider {
   }) {
     return OauthProvider(
       providerId: (providerId != null ? providerId.value : this.providerId),
-      providerName: (providerName != null
-          ? providerName.value
-          : this.providerName),
+      providerName:
+          (providerName != null ? providerName.value : this.providerName),
       issuer: (issuer != null ? issuer.value : this.issuer),
       audience: (audience != null ? audience.value : this.audience),
       subject: (subject != null ? subject.value : this.subject),
@@ -17985,9 +17862,8 @@ extension $OauthProviderParamsExtension on OauthProviderParams {
     Wrapped<String>? oidcToken,
   }) {
     return OauthProviderParams(
-      providerName: (providerName != null
-          ? providerName.value
-          : this.providerName),
+      providerName:
+          (providerName != null ? providerName.value : this.providerName),
       oidcToken: (oidcToken != null ? oidcToken.value : this.oidcToken),
     );
   }
@@ -18081,9 +17957,8 @@ extension $OauthRequestExtension on OauthRequest {
     return OauthRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -18378,9 +18253,8 @@ extension $OtpAuthRequestExtension on OtpAuthRequest {
     return OtpAuthRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -18652,9 +18526,8 @@ extension $OtpLoginRequestExtension on OtpLoginRequest {
     return OtpLoginRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -19057,18 +18930,15 @@ extension $PrivateKeyExtension on PrivateKey {
     Wrapped<bool>? imported,
   }) {
     return PrivateKey(
-      privateKeyId: (privateKeyId != null
-          ? privateKeyId.value
-          : this.privateKeyId),
+      privateKeyId:
+          (privateKeyId != null ? privateKeyId.value : this.privateKeyId),
       publicKey: (publicKey != null ? publicKey.value : this.publicKey),
-      privateKeyName: (privateKeyName != null
-          ? privateKeyName.value
-          : this.privateKeyName),
+      privateKeyName:
+          (privateKeyName != null ? privateKeyName.value : this.privateKeyName),
       curve: (curve != null ? curve.value : this.curve),
       addresses: (addresses != null ? addresses.value : this.addresses),
-      privateKeyTags: (privateKeyTags != null
-          ? privateKeyTags.value
-          : this.privateKeyTags),
+      privateKeyTags:
+          (privateKeyTags != null ? privateKeyTags.value : this.privateKeyTags),
       createdAt: (createdAt != null ? createdAt.value : this.createdAt),
       updatedAt: (updatedAt != null ? updatedAt.value : this.updatedAt),
       exported: (exported != null ? exported.value : this.exported),
@@ -19163,16 +19033,13 @@ extension $PrivateKeyParamsExtension on PrivateKeyParams {
     Wrapped<List<enums.AddressFormat>>? addressFormats,
   }) {
     return PrivateKeyParams(
-      privateKeyName: (privateKeyName != null
-          ? privateKeyName.value
-          : this.privateKeyName),
+      privateKeyName:
+          (privateKeyName != null ? privateKeyName.value : this.privateKeyName),
       curve: (curve != null ? curve.value : this.curve),
-      privateKeyTags: (privateKeyTags != null
-          ? privateKeyTags.value
-          : this.privateKeyTags),
-      addressFormats: (addressFormats != null
-          ? addressFormats.value
-          : this.addressFormats),
+      privateKeyTags:
+          (privateKeyTags != null ? privateKeyTags.value : this.privateKeyTags),
+      addressFormats:
+          (addressFormats != null ? addressFormats.value : this.addressFormats),
     );
   }
 }
@@ -19235,9 +19102,8 @@ extension $PrivateKeyResultExtension on PrivateKeyResult {
     Wrapped<List<ActivityV1Address>?>? addresses,
   }) {
     return PrivateKeyResult(
-      privateKeyId: (privateKeyId != null
-          ? privateKeyId.value
-          : this.privateKeyId),
+      privateKeyId:
+          (privateKeyId != null ? privateKeyId.value : this.privateKeyId),
       addresses: (addresses != null ? addresses.value : this.addresses),
     );
   }
@@ -19256,7 +19122,8 @@ class PublicKeyCredentialWithAttestation {
 
   factory PublicKeyCredentialWithAttestation.fromJson(
     Map<String, dynamic> json,
-  ) => _$PublicKeyCredentialWithAttestationFromJson(json);
+  ) =>
+      _$PublicKeyCredentialWithAttestationFromJson(json);
 
   static const toJsonFactory = _$PublicKeyCredentialWithAttestationToJson;
   Map<String, dynamic> toJson() =>
@@ -19280,7 +19147,7 @@ class PublicKeyCredentialWithAttestation {
         publicKeyCredentialWithAttestationAuthenticatorAttachmentNullableFromJson,
   )
   final enums.PublicKeyCredentialWithAttestationAuthenticatorAttachment?
-  authenticatorAttachment;
+      authenticatorAttachment;
   @JsonKey(name: 'response')
   final AuthenticatorAttestationResponse response;
   @JsonKey(name: 'clientExtensionResults')
@@ -19338,7 +19205,7 @@ extension $PublicKeyCredentialWithAttestationExtension
     enums.PublicKeyCredentialWithAttestationType? type,
     String? rawId,
     enums.PublicKeyCredentialWithAttestationAuthenticatorAttachment?
-    authenticatorAttachment,
+        authenticatorAttachment,
     AuthenticatorAttestationResponse? response,
     SimpleClientExtensionResults? clientExtensionResults,
   }) {
@@ -19359,7 +19226,7 @@ extension $PublicKeyCredentialWithAttestationExtension
     Wrapped<enums.PublicKeyCredentialWithAttestationType>? type,
     Wrapped<String>? rawId,
     Wrapped<enums.PublicKeyCredentialWithAttestationAuthenticatorAttachment?>?
-    authenticatorAttachment,
+        authenticatorAttachment,
     Wrapped<AuthenticatorAttestationResponse>? response,
     Wrapped<SimpleClientExtensionResults>? clientExtensionResults,
   }) {
@@ -19433,9 +19300,8 @@ extension $RecoverUserIntentExtension on RecoverUserIntent {
     Wrapped<String>? userId,
   }) {
     return RecoverUserIntent(
-      authenticator: (authenticator != null
-          ? authenticator.value
-          : this.authenticator),
+      authenticator:
+          (authenticator != null ? authenticator.value : this.authenticator),
       userId: (userId != null ? userId.value : this.userId),
     );
   }
@@ -19529,9 +19395,8 @@ extension $RecoverUserRequestExtension on RecoverUserRequest {
     return RecoverUserRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -19720,9 +19585,8 @@ extension $RejectActivityRequestExtension on RejectActivityRequest {
     return RejectActivityRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -19789,7 +19653,8 @@ class RemoveOrganizationFeatureRequest {
 
   factory RemoveOrganizationFeatureRequest.fromJson(
     Map<String, dynamic> json,
-  ) => _$RemoveOrganizationFeatureRequestFromJson(json);
+  ) =>
+      _$RemoveOrganizationFeatureRequestFromJson(json);
 
   static const toJsonFactory = _$RemoveOrganizationFeatureRequestToJson;
   Map<String, dynamic> toJson() =>
@@ -19869,9 +19734,8 @@ extension $RemoveOrganizationFeatureRequestExtension
     return RemoveOrganizationFeatureRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -20852,8 +20716,7 @@ extension $ResultExtension on Result {
       recoverUserResult: recoverUserResult ?? this.recoverUserResult,
       setOrganizationFeatureResult:
           setOrganizationFeatureResult ?? this.setOrganizationFeatureResult,
-      removeOrganizationFeatureResult:
-          removeOrganizationFeatureResult ??
+      removeOrganizationFeatureResult: removeOrganizationFeatureResult ??
           this.removeOrganizationFeatureResult,
       exportPrivateKeyResult:
           exportPrivateKeyResult ?? this.exportPrivateKeyResult,
@@ -21171,9 +21034,8 @@ extension $ResultExtension on Result {
       initOtpAuthResult: (initOtpAuthResult != null
           ? initOtpAuthResult.value
           : this.initOtpAuthResult),
-      otpAuthResult: (otpAuthResult != null
-          ? otpAuthResult.value
-          : this.otpAuthResult),
+      otpAuthResult:
+          (otpAuthResult != null ? otpAuthResult.value : this.otpAuthResult),
       createSubOrganizationResultV7: (createSubOrganizationResultV7 != null
           ? createSubOrganizationResultV7.value
           : this.createSubOrganizationResultV7),
@@ -21186,15 +21048,13 @@ extension $ResultExtension on Result {
       initOtpAuthResultV2: (initOtpAuthResultV2 != null
           ? initOtpAuthResultV2.value
           : this.initOtpAuthResultV2),
-      initOtpResult: (initOtpResult != null
-          ? initOtpResult.value
-          : this.initOtpResult),
+      initOtpResult:
+          (initOtpResult != null ? initOtpResult.value : this.initOtpResult),
       verifyOtpResult: (verifyOtpResult != null
           ? verifyOtpResult.value
           : this.verifyOtpResult),
-      otpLoginResult: (otpLoginResult != null
-          ? otpLoginResult.value
-          : this.otpLoginResult),
+      otpLoginResult:
+          (otpLoginResult != null ? otpLoginResult.value : this.otpLoginResult),
       stampLoginResult: (stampLoginResult != null
           ? stampLoginResult.value
           : this.stampLoginResult),
@@ -21293,9 +21153,8 @@ extension $RootUserParamsExtension on RootUserParams {
       userName: (userName != null ? userName.value : this.userName),
       userEmail: (userEmail != null ? userEmail.value : this.userEmail),
       apiKeys: (apiKeys != null ? apiKeys.value : this.apiKeys),
-      authenticators: (authenticators != null
-          ? authenticators.value
-          : this.authenticators),
+      authenticators:
+          (authenticators != null ? authenticators.value : this.authenticators),
     );
   }
 }
@@ -21400,12 +21259,10 @@ extension $RootUserParamsV2Extension on RootUserParamsV2 {
       userName: (userName != null ? userName.value : this.userName),
       userEmail: (userEmail != null ? userEmail.value : this.userEmail),
       apiKeys: (apiKeys != null ? apiKeys.value : this.apiKeys),
-      authenticators: (authenticators != null
-          ? authenticators.value
-          : this.authenticators),
-      oauthProviders: (oauthProviders != null
-          ? oauthProviders.value
-          : this.oauthProviders),
+      authenticators:
+          (authenticators != null ? authenticators.value : this.authenticators),
+      oauthProviders:
+          (oauthProviders != null ? oauthProviders.value : this.oauthProviders),
     );
   }
 }
@@ -21510,12 +21367,10 @@ extension $RootUserParamsV3Extension on RootUserParamsV3 {
       userName: (userName != null ? userName.value : this.userName),
       userEmail: (userEmail != null ? userEmail.value : this.userEmail),
       apiKeys: (apiKeys != null ? apiKeys.value : this.apiKeys),
-      authenticators: (authenticators != null
-          ? authenticators.value
-          : this.authenticators),
-      oauthProviders: (oauthProviders != null
-          ? oauthProviders.value
-          : this.oauthProviders),
+      authenticators:
+          (authenticators != null ? authenticators.value : this.authenticators),
+      oauthProviders:
+          (oauthProviders != null ? oauthProviders.value : this.oauthProviders),
     );
   }
 }
@@ -21635,12 +21490,10 @@ extension $RootUserParamsV4Extension on RootUserParamsV4 {
           ? userPhoneNumber.value
           : this.userPhoneNumber),
       apiKeys: (apiKeys != null ? apiKeys.value : this.apiKeys),
-      authenticators: (authenticators != null
-          ? authenticators.value
-          : this.authenticators),
-      oauthProviders: (oauthProviders != null
-          ? oauthProviders.value
-          : this.oauthProviders),
+      authenticators:
+          (authenticators != null ? authenticators.value : this.authenticators),
+      oauthProviders:
+          (oauthProviders != null ? oauthProviders.value : this.oauthProviders),
     );
   }
 }
@@ -21954,9 +21807,8 @@ extension $SetOrganizationFeatureRequestExtension
     return SetOrganizationFeatureRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -22120,9 +21972,8 @@ extension $SetPaymentMethodIntentExtension on SetPaymentMethodIntent {
       cardHolderEmail: (cardHolderEmail != null
           ? cardHolderEmail.value
           : this.cardHolderEmail),
-      cardHolderName: (cardHolderName != null
-          ? cardHolderName.value
-          : this.cardHolderName),
+      cardHolderName:
+          (cardHolderName != null ? cardHolderName.value : this.cardHolderName),
     );
   }
 }
@@ -22206,9 +22057,8 @@ extension $SetPaymentMethodIntentV2Extension on SetPaymentMethodIntentV2 {
       cardHolderEmail: (cardHolderEmail != null
           ? cardHolderEmail.value
           : this.cardHolderEmail),
-      cardHolderName: (cardHolderName != null
-          ? cardHolderName.value
-          : this.cardHolderName),
+      cardHolderName:
+          (cardHolderName != null ? cardHolderName.value : this.cardHolderName),
     );
   }
 }
@@ -22287,9 +22137,8 @@ extension $SetPaymentMethodResultExtension on SetPaymentMethodResult {
   }) {
     return SetPaymentMethodResult(
       lastFour: (lastFour != null ? lastFour.value : this.lastFour),
-      cardHolderName: (cardHolderName != null
-          ? cardHolderName.value
-          : this.cardHolderName),
+      cardHolderName:
+          (cardHolderName != null ? cardHolderName.value : this.cardHolderName),
       cardHolderEmail: (cardHolderEmail != null
           ? cardHolderEmail.value
           : this.cardHolderEmail),
@@ -22390,14 +22239,12 @@ extension $SignRawPayloadIntentExtension on SignRawPayloadIntent {
     Wrapped<enums.HashFunction>? hashFunction,
   }) {
     return SignRawPayloadIntent(
-      privateKeyId: (privateKeyId != null
-          ? privateKeyId.value
-          : this.privateKeyId),
+      privateKeyId:
+          (privateKeyId != null ? privateKeyId.value : this.privateKeyId),
       payload: (payload != null ? payload.value : this.payload),
       encoding: (encoding != null ? encoding.value : this.encoding),
-      hashFunction: (hashFunction != null
-          ? hashFunction.value
-          : this.hashFunction),
+      hashFunction:
+          (hashFunction != null ? hashFunction.value : this.hashFunction),
     );
   }
 }
@@ -22498,9 +22345,8 @@ extension $SignRawPayloadIntentV2Extension on SignRawPayloadIntentV2 {
       signWith: (signWith != null ? signWith.value : this.signWith),
       payload: (payload != null ? payload.value : this.payload),
       encoding: (encoding != null ? encoding.value : this.encoding),
-      hashFunction: (hashFunction != null
-          ? hashFunction.value
-          : this.hashFunction),
+      hashFunction:
+          (hashFunction != null ? hashFunction.value : this.hashFunction),
     );
   }
 }
@@ -22593,9 +22439,8 @@ extension $SignRawPayloadRequestExtension on SignRawPayloadRequest {
     return SignRawPayloadRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -22760,9 +22605,8 @@ extension $SignRawPayloadsIntentExtension on SignRawPayloadsIntent {
       signWith: (signWith != null ? signWith.value : this.signWith),
       payloads: (payloads != null ? payloads.value : this.payloads),
       encoding: (encoding != null ? encoding.value : this.encoding),
-      hashFunction: (hashFunction != null
-          ? hashFunction.value
-          : this.hashFunction),
+      hashFunction:
+          (hashFunction != null ? hashFunction.value : this.hashFunction),
     );
   }
 }
@@ -22855,9 +22699,8 @@ extension $SignRawPayloadsRequestExtension on SignRawPayloadsRequest {
     return SignRawPayloadsRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -22984,9 +22827,8 @@ extension $SignTransactionIntentExtension on SignTransactionIntent {
     Wrapped<enums.TransactionType>? type,
   }) {
     return SignTransactionIntent(
-      privateKeyId: (privateKeyId != null
-          ? privateKeyId.value
-          : this.privateKeyId),
+      privateKeyId:
+          (privateKeyId != null ? privateKeyId.value : this.privateKeyId),
       unsignedTransaction: (unsignedTransaction != null
           ? unsignedTransaction.value
           : this.unsignedTransaction),
@@ -23166,9 +23008,8 @@ extension $SignTransactionRequestExtension on SignTransactionRequest {
     return SignTransactionRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -23296,9 +23137,8 @@ extension $SimpleClientExtensionResultsExtension
   }) {
     return SimpleClientExtensionResults(
       appid: (appid != null ? appid.value : this.appid),
-      appidExclude: (appidExclude != null
-          ? appidExclude.value
-          : this.appidExclude),
+      appidExclude:
+          (appidExclude != null ? appidExclude.value : this.appidExclude),
       credProps: (credProps != null ? credProps.value : this.credProps),
     );
   }
@@ -23521,9 +23361,8 @@ extension $StampLoginRequestExtension on StampLoginRequest {
     return StampLoginRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -23681,9 +23520,8 @@ extension $UpdateAllowedOriginsIntentExtension on UpdateAllowedOriginsIntent {
     Wrapped<List<String>>? allowedOrigins,
   }) {
     return UpdateAllowedOriginsIntent(
-      allowedOrigins: (allowedOrigins != null
-          ? allowedOrigins.value
-          : this.allowedOrigins),
+      allowedOrigins:
+          (allowedOrigins != null ? allowedOrigins.value : this.allowedOrigins),
     );
   }
 }
@@ -23822,9 +23660,8 @@ extension $UpdatePolicyIntentExtension on UpdatePolicyIntent {
     return UpdatePolicyIntent(
       policyId: (policyId != null ? policyId.value : this.policyId),
       policyName: (policyName != null ? policyName.value : this.policyName),
-      policyEffect: (policyEffect != null
-          ? policyEffect.value
-          : this.policyEffect),
+      policyEffect:
+          (policyEffect != null ? policyEffect.value : this.policyEffect),
       policyCondition: (policyCondition != null
           ? policyCondition.value
           : this.policyCondition),
@@ -23951,9 +23788,8 @@ extension $UpdatePolicyIntentV2Extension on UpdatePolicyIntentV2 {
     return UpdatePolicyIntentV2(
       policyId: (policyId != null ? policyId.value : this.policyId),
       policyName: (policyName != null ? policyName.value : this.policyName),
-      policyEffect: (policyEffect != null
-          ? policyEffect.value
-          : this.policyEffect),
+      policyEffect:
+          (policyEffect != null ? policyEffect.value : this.policyEffect),
       policyCondition: (policyCondition != null
           ? policyCondition.value
           : this.policyCondition),
@@ -24053,9 +23889,8 @@ extension $UpdatePolicyRequestExtension on UpdatePolicyRequest {
     return UpdatePolicyRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -24340,9 +24175,8 @@ extension $UpdatePrivateKeyTagRequestExtension on UpdatePrivateKeyTagRequest {
     return UpdatePrivateKeyTagRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -24549,9 +24383,8 @@ extension $UpdateRootQuorumRequestExtension on UpdateRootQuorumRequest {
     return UpdateRootQuorumRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -24769,9 +24602,8 @@ extension $UpdateUserRequestExtension on UpdateUserRequest {
     return UpdateUserRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -24905,13 +24737,11 @@ extension $UpdateUserTagIntentExtension on UpdateUserTagIntent {
   }) {
     return UpdateUserTagIntent(
       userTagId: (userTagId != null ? userTagId.value : this.userTagId),
-      newUserTagName: (newUserTagName != null
-          ? newUserTagName.value
-          : this.newUserTagName),
+      newUserTagName:
+          (newUserTagName != null ? newUserTagName.value : this.newUserTagName),
       addUserIds: (addUserIds != null ? addUserIds.value : this.addUserIds),
-      removeUserIds: (removeUserIds != null
-          ? removeUserIds.value
-          : this.removeUserIds),
+      removeUserIds:
+          (removeUserIds != null ? removeUserIds.value : this.removeUserIds),
     );
   }
 }
@@ -25004,9 +24834,8 @@ extension $UpdateUserTagRequestExtension on UpdateUserTagRequest {
     return UpdateUserTagRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -25206,9 +25035,8 @@ extension $UpdateWalletRequestExtension on UpdateWalletRequest {
     return UpdateWalletRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -25418,14 +25246,12 @@ extension $UserExtension on User {
       userPhoneNumber: (userPhoneNumber != null
           ? userPhoneNumber.value
           : this.userPhoneNumber),
-      authenticators: (authenticators != null
-          ? authenticators.value
-          : this.authenticators),
+      authenticators:
+          (authenticators != null ? authenticators.value : this.authenticators),
       apiKeys: (apiKeys != null ? apiKeys.value : this.apiKeys),
       userTags: (userTags != null ? userTags.value : this.userTags),
-      oauthProviders: (oauthProviders != null
-          ? oauthProviders.value
-          : this.oauthProviders),
+      oauthProviders:
+          (oauthProviders != null ? oauthProviders.value : this.oauthProviders),
       createdAt: (createdAt != null ? createdAt.value : this.createdAt),
       updatedAt: (updatedAt != null ? updatedAt.value : this.updatedAt),
     );
@@ -25549,9 +25375,8 @@ extension $UserParamsExtension on UserParams {
       userEmail: (userEmail != null ? userEmail.value : this.userEmail),
       accessType: (accessType != null ? accessType.value : this.accessType),
       apiKeys: (apiKeys != null ? apiKeys.value : this.apiKeys),
-      authenticators: (authenticators != null
-          ? authenticators.value
-          : this.authenticators),
+      authenticators:
+          (authenticators != null ? authenticators.value : this.authenticators),
       userTags: (userTags != null ? userTags.value : this.userTags),
     );
   }
@@ -25657,9 +25482,8 @@ extension $UserParamsV2Extension on UserParamsV2 {
       userName: (userName != null ? userName.value : this.userName),
       userEmail: (userEmail != null ? userEmail.value : this.userEmail),
       apiKeys: (apiKeys != null ? apiKeys.value : this.apiKeys),
-      authenticators: (authenticators != null
-          ? authenticators.value
-          : this.authenticators),
+      authenticators:
+          (authenticators != null ? authenticators.value : this.authenticators),
       userTags: (userTags != null ? userTags.value : this.userTags),
     );
   }
@@ -25792,12 +25616,10 @@ extension $UserParamsV3Extension on UserParamsV3 {
           ? userPhoneNumber.value
           : this.userPhoneNumber),
       apiKeys: (apiKeys != null ? apiKeys.value : this.apiKeys),
-      authenticators: (authenticators != null
-          ? authenticators.value
-          : this.authenticators),
-      oauthProviders: (oauthProviders != null
-          ? oauthProviders.value
-          : this.oauthProviders),
+      authenticators:
+          (authenticators != null ? authenticators.value : this.authenticators),
+      oauthProviders:
+          (oauthProviders != null ? oauthProviders.value : this.oauthProviders),
       userTags: (userTags != null ? userTags.value : this.userTags),
     );
   }
@@ -25970,9 +25792,8 @@ extension $VerifyOtpRequestExtension on VerifyOtpRequest {
     return VerifyOtpRequest(
       type: (type != null ? type.value : this.type),
       timestampMs: (timestampMs != null ? timestampMs.value : this.timestampMs),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       parameters: (parameters != null ? parameters.value : this.parameters),
     );
   }
@@ -26482,16 +26303,14 @@ extension $WalletAccountExtension on WalletAccount {
       walletAccountId: (walletAccountId != null
           ? walletAccountId.value
           : this.walletAccountId),
-      organizationId: (organizationId != null
-          ? organizationId.value
-          : this.organizationId),
+      organizationId:
+          (organizationId != null ? organizationId.value : this.organizationId),
       walletId: (walletId != null ? walletId.value : this.walletId),
       curve: (curve != null ? curve.value : this.curve),
       pathFormat: (pathFormat != null ? pathFormat.value : this.pathFormat),
       path: (path != null ? path.value : this.path),
-      addressFormat: (addressFormat != null
-          ? addressFormat.value
-          : this.addressFormat),
+      addressFormat:
+          (addressFormat != null ? addressFormat.value : this.addressFormat),
       address: (address != null ? address.value : this.address),
       createdAt: (createdAt != null ? createdAt.value : this.createdAt),
       updatedAt: (updatedAt != null ? updatedAt.value : this.updatedAt),
@@ -26590,9 +26409,8 @@ extension $WalletAccountParamsExtension on WalletAccountParams {
       curve: (curve != null ? curve.value : this.curve),
       pathFormat: (pathFormat != null ? pathFormat.value : this.pathFormat),
       path: (path != null ? path.value : this.path),
-      addressFormat: (addressFormat != null
-          ? addressFormat.value
-          : this.addressFormat),
+      addressFormat:
+          (addressFormat != null ? addressFormat.value : this.addressFormat),
     );
   }
 }
@@ -26672,9 +26490,8 @@ extension $WalletParamsExtension on WalletParams {
     return WalletParams(
       walletName: (walletName != null ? walletName.value : this.walletName),
       accounts: (accounts != null ? accounts.value : this.accounts),
-      mnemonicLength: (mnemonicLength != null
-          ? mnemonicLength.value
-          : this.mnemonicLength),
+      mnemonicLength:
+          (mnemonicLength != null ? mnemonicLength.value : this.mnemonicLength),
     );
   }
 }
@@ -27547,7 +27364,7 @@ List<enums.ApproveActivityRequestType> approveActivityRequestTypeListFromJson(
 }
 
 List<enums.ApproveActivityRequestType>?
-approveActivityRequestTypeNullableListFromJson(
+    approveActivityRequestTypeNullableListFromJson(
   List? approveActivityRequestType, [
   List<enums.ApproveActivityRequestType>? defaultValue,
 ]) {
@@ -27562,37 +27379,35 @@ approveActivityRequestTypeNullableListFromJson(
 
 String? authenticatorAttestationResponseAuthenticatorAttachmentNullableToJson(
   enums.AuthenticatorAttestationResponseAuthenticatorAttachment?
-  authenticatorAttestationResponseAuthenticatorAttachment,
+      authenticatorAttestationResponseAuthenticatorAttachment,
 ) {
   return authenticatorAttestationResponseAuthenticatorAttachment?.value;
 }
 
 String? authenticatorAttestationResponseAuthenticatorAttachmentToJson(
   enums.AuthenticatorAttestationResponseAuthenticatorAttachment
-  authenticatorAttestationResponseAuthenticatorAttachment,
+      authenticatorAttestationResponseAuthenticatorAttachment,
 ) {
   return authenticatorAttestationResponseAuthenticatorAttachment.value;
 }
 
 enums.AuthenticatorAttestationResponseAuthenticatorAttachment
-authenticatorAttestationResponseAuthenticatorAttachmentFromJson(
+    authenticatorAttestationResponseAuthenticatorAttachmentFromJson(
   Object? authenticatorAttestationResponseAuthenticatorAttachment, [
   enums.AuthenticatorAttestationResponseAuthenticatorAttachment? defaultValue,
 ]) {
   return enums.AuthenticatorAttestationResponseAuthenticatorAttachment.values
           .firstWhereOrNull(
-            (e) =>
-                e.value ==
-                authenticatorAttestationResponseAuthenticatorAttachment,
-          ) ??
+        (e) =>
+            e.value == authenticatorAttestationResponseAuthenticatorAttachment,
+      ) ??
       defaultValue ??
-      enums
-          .AuthenticatorAttestationResponseAuthenticatorAttachment
+      enums.AuthenticatorAttestationResponseAuthenticatorAttachment
           .swaggerGeneratedUnknown;
 }
 
 enums.AuthenticatorAttestationResponseAuthenticatorAttachment?
-authenticatorAttestationResponseAuthenticatorAttachmentNullableFromJson(
+    authenticatorAttestationResponseAuthenticatorAttachmentNullableFromJson(
   Object? authenticatorAttestationResponseAuthenticatorAttachment, [
   enums.AuthenticatorAttestationResponseAuthenticatorAttachment? defaultValue,
 ]) {
@@ -27601,17 +27416,16 @@ authenticatorAttestationResponseAuthenticatorAttachmentNullableFromJson(
   }
   return enums.AuthenticatorAttestationResponseAuthenticatorAttachment.values
           .firstWhereOrNull(
-            (e) =>
-                e.value ==
-                authenticatorAttestationResponseAuthenticatorAttachment,
-          ) ??
+        (e) =>
+            e.value == authenticatorAttestationResponseAuthenticatorAttachment,
+      ) ??
       defaultValue;
 }
 
 String
-authenticatorAttestationResponseAuthenticatorAttachmentExplodedListToJson(
+    authenticatorAttestationResponseAuthenticatorAttachmentExplodedListToJson(
   List<enums.AuthenticatorAttestationResponseAuthenticatorAttachment>?
-  authenticatorAttestationResponseAuthenticatorAttachment,
+      authenticatorAttestationResponseAuthenticatorAttachment,
 ) {
   return authenticatorAttestationResponseAuthenticatorAttachment
           ?.map((e) => e.value!)
@@ -27621,7 +27435,7 @@ authenticatorAttestationResponseAuthenticatorAttachmentExplodedListToJson(
 
 List<String> authenticatorAttestationResponseAuthenticatorAttachmentListToJson(
   List<enums.AuthenticatorAttestationResponseAuthenticatorAttachment>?
-  authenticatorAttestationResponseAuthenticatorAttachment,
+      authenticatorAttestationResponseAuthenticatorAttachment,
 ) {
   if (authenticatorAttestationResponseAuthenticatorAttachment == null) {
     return [];
@@ -27633,10 +27447,10 @@ List<String> authenticatorAttestationResponseAuthenticatorAttachmentListToJson(
 }
 
 List<enums.AuthenticatorAttestationResponseAuthenticatorAttachment>
-authenticatorAttestationResponseAuthenticatorAttachmentListFromJson(
+    authenticatorAttestationResponseAuthenticatorAttachmentListFromJson(
   List? authenticatorAttestationResponseAuthenticatorAttachment, [
   List<enums.AuthenticatorAttestationResponseAuthenticatorAttachment>?
-  defaultValue,
+      defaultValue,
 ]) {
   if (authenticatorAttestationResponseAuthenticatorAttachment == null) {
     return defaultValue ?? [];
@@ -27652,10 +27466,10 @@ authenticatorAttestationResponseAuthenticatorAttachmentListFromJson(
 }
 
 List<enums.AuthenticatorAttestationResponseAuthenticatorAttachment>?
-authenticatorAttestationResponseAuthenticatorAttachmentNullableListFromJson(
+    authenticatorAttestationResponseAuthenticatorAttachmentNullableListFromJson(
   List? authenticatorAttestationResponseAuthenticatorAttachment, [
   List<enums.AuthenticatorAttestationResponseAuthenticatorAttachment>?
-  defaultValue,
+      defaultValue,
 ]) {
   if (authenticatorAttestationResponseAuthenticatorAttachment == null) {
     return defaultValue;
@@ -27814,7 +27628,7 @@ List<enums.CreateApiKeysRequestType> createApiKeysRequestTypeListFromJson(
 }
 
 List<enums.CreateApiKeysRequestType>?
-createApiKeysRequestTypeNullableListFromJson(
+    createApiKeysRequestTypeNullableListFromJson(
   List? createApiKeysRequestType, [
   List<enums.CreateApiKeysRequestType>? defaultValue,
 ]) {
@@ -27851,7 +27665,7 @@ enums.CreateAuthenticatorsRequestType createAuthenticatorsRequestTypeFromJson(
 }
 
 enums.CreateAuthenticatorsRequestType?
-createAuthenticatorsRequestTypeNullableFromJson(
+    createAuthenticatorsRequestTypeNullableFromJson(
   Object? createAuthenticatorsRequestType, [
   enums.CreateAuthenticatorsRequestType? defaultValue,
 ]) {
@@ -27881,7 +27695,7 @@ List<String> createAuthenticatorsRequestTypeListToJson(
 }
 
 List<enums.CreateAuthenticatorsRequestType>
-createAuthenticatorsRequestTypeListFromJson(
+    createAuthenticatorsRequestTypeListFromJson(
   List? createAuthenticatorsRequestType, [
   List<enums.CreateAuthenticatorsRequestType>? defaultValue,
 ]) {
@@ -27895,7 +27709,7 @@ createAuthenticatorsRequestTypeListFromJson(
 }
 
 List<enums.CreateAuthenticatorsRequestType>?
-createAuthenticatorsRequestTypeNullableListFromJson(
+    createAuthenticatorsRequestTypeNullableListFromJson(
   List? createAuthenticatorsRequestType, [
   List<enums.CreateAuthenticatorsRequestType>? defaultValue,
 ]) {
@@ -27932,7 +27746,7 @@ enums.CreateInvitationsRequestType createInvitationsRequestTypeFromJson(
 }
 
 enums.CreateInvitationsRequestType?
-createInvitationsRequestTypeNullableFromJson(
+    createInvitationsRequestTypeNullableFromJson(
   Object? createInvitationsRequestType, [
   enums.CreateInvitationsRequestType? defaultValue,
 ]) {
@@ -27962,7 +27776,7 @@ List<String> createInvitationsRequestTypeListToJson(
 }
 
 List<enums.CreateInvitationsRequestType>
-createInvitationsRequestTypeListFromJson(
+    createInvitationsRequestTypeListFromJson(
   List? createInvitationsRequestType, [
   List<enums.CreateInvitationsRequestType>? defaultValue,
 ]) {
@@ -27976,7 +27790,7 @@ createInvitationsRequestTypeListFromJson(
 }
 
 List<enums.CreateInvitationsRequestType>?
-createInvitationsRequestTypeNullableListFromJson(
+    createInvitationsRequestTypeNullableListFromJson(
   List? createInvitationsRequestType, [
   List<enums.CreateInvitationsRequestType>? defaultValue,
 ]) {
@@ -28013,7 +27827,7 @@ enums.CreateOauthProvidersRequestType createOauthProvidersRequestTypeFromJson(
 }
 
 enums.CreateOauthProvidersRequestType?
-createOauthProvidersRequestTypeNullableFromJson(
+    createOauthProvidersRequestTypeNullableFromJson(
   Object? createOauthProvidersRequestType, [
   enums.CreateOauthProvidersRequestType? defaultValue,
 ]) {
@@ -28043,7 +27857,7 @@ List<String> createOauthProvidersRequestTypeListToJson(
 }
 
 List<enums.CreateOauthProvidersRequestType>
-createOauthProvidersRequestTypeListFromJson(
+    createOauthProvidersRequestTypeListFromJson(
   List? createOauthProvidersRequestType, [
   List<enums.CreateOauthProvidersRequestType>? defaultValue,
 ]) {
@@ -28057,7 +27871,7 @@ createOauthProvidersRequestTypeListFromJson(
 }
 
 List<enums.CreateOauthProvidersRequestType>?
-createOauthProvidersRequestTypeNullableListFromJson(
+    createOauthProvidersRequestTypeNullableListFromJson(
   List? createOauthProvidersRequestType, [
   List<enums.CreateOauthProvidersRequestType>? defaultValue,
 ]) {
@@ -28136,7 +27950,7 @@ List<enums.CreatePoliciesRequestType> createPoliciesRequestTypeListFromJson(
 }
 
 List<enums.CreatePoliciesRequestType>?
-createPoliciesRequestTypeNullableListFromJson(
+    createPoliciesRequestTypeNullableListFromJson(
   List? createPoliciesRequestType, [
   List<enums.CreatePoliciesRequestType>? defaultValue,
 ]) {
@@ -28215,7 +28029,7 @@ List<enums.CreatePolicyRequestType> createPolicyRequestTypeListFromJson(
 }
 
 List<enums.CreatePolicyRequestType>?
-createPolicyRequestTypeNullableListFromJson(
+    createPolicyRequestTypeNullableListFromJson(
   List? createPolicyRequestType, [
   List<enums.CreatePolicyRequestType>? defaultValue,
 ]) {
@@ -28252,7 +28066,7 @@ enums.CreatePrivateKeyTagRequestType createPrivateKeyTagRequestTypeFromJson(
 }
 
 enums.CreatePrivateKeyTagRequestType?
-createPrivateKeyTagRequestTypeNullableFromJson(
+    createPrivateKeyTagRequestTypeNullableFromJson(
   Object? createPrivateKeyTagRequestType, [
   enums.CreatePrivateKeyTagRequestType? defaultValue,
 ]) {
@@ -28282,7 +28096,7 @@ List<String> createPrivateKeyTagRequestTypeListToJson(
 }
 
 List<enums.CreatePrivateKeyTagRequestType>
-createPrivateKeyTagRequestTypeListFromJson(
+    createPrivateKeyTagRequestTypeListFromJson(
   List? createPrivateKeyTagRequestType, [
   List<enums.CreatePrivateKeyTagRequestType>? defaultValue,
 ]) {
@@ -28296,7 +28110,7 @@ createPrivateKeyTagRequestTypeListFromJson(
 }
 
 List<enums.CreatePrivateKeyTagRequestType>?
-createPrivateKeyTagRequestTypeNullableListFromJson(
+    createPrivateKeyTagRequestTypeNullableListFromJson(
   List? createPrivateKeyTagRequestType, [
   List<enums.CreatePrivateKeyTagRequestType>? defaultValue,
 ]) {
@@ -28333,7 +28147,7 @@ enums.CreatePrivateKeysRequestType createPrivateKeysRequestTypeFromJson(
 }
 
 enums.CreatePrivateKeysRequestType?
-createPrivateKeysRequestTypeNullableFromJson(
+    createPrivateKeysRequestTypeNullableFromJson(
   Object? createPrivateKeysRequestType, [
   enums.CreatePrivateKeysRequestType? defaultValue,
 ]) {
@@ -28363,7 +28177,7 @@ List<String> createPrivateKeysRequestTypeListToJson(
 }
 
 List<enums.CreatePrivateKeysRequestType>
-createPrivateKeysRequestTypeListFromJson(
+    createPrivateKeysRequestTypeListFromJson(
   List? createPrivateKeysRequestType, [
   List<enums.CreatePrivateKeysRequestType>? defaultValue,
 ]) {
@@ -28377,7 +28191,7 @@ createPrivateKeysRequestTypeListFromJson(
 }
 
 List<enums.CreatePrivateKeysRequestType>?
-createPrivateKeysRequestTypeNullableListFromJson(
+    createPrivateKeysRequestTypeNullableListFromJson(
   List? createPrivateKeysRequestType, [
   List<enums.CreatePrivateKeysRequestType>? defaultValue,
 ]) {
@@ -28414,7 +28228,7 @@ enums.CreateReadOnlySessionRequestType createReadOnlySessionRequestTypeFromJson(
 }
 
 enums.CreateReadOnlySessionRequestType?
-createReadOnlySessionRequestTypeNullableFromJson(
+    createReadOnlySessionRequestTypeNullableFromJson(
   Object? createReadOnlySessionRequestType, [
   enums.CreateReadOnlySessionRequestType? defaultValue,
 ]) {
@@ -28429,14 +28243,14 @@ createReadOnlySessionRequestTypeNullableFromJson(
 
 String createReadOnlySessionRequestTypeExplodedListToJson(
   List<enums.CreateReadOnlySessionRequestType>?
-  createReadOnlySessionRequestType,
+      createReadOnlySessionRequestType,
 ) {
   return createReadOnlySessionRequestType?.map((e) => e.value!).join(',') ?? '';
 }
 
 List<String> createReadOnlySessionRequestTypeListToJson(
   List<enums.CreateReadOnlySessionRequestType>?
-  createReadOnlySessionRequestType,
+      createReadOnlySessionRequestType,
 ) {
   if (createReadOnlySessionRequestType == null) {
     return [];
@@ -28446,7 +28260,7 @@ List<String> createReadOnlySessionRequestTypeListToJson(
 }
 
 List<enums.CreateReadOnlySessionRequestType>
-createReadOnlySessionRequestTypeListFromJson(
+    createReadOnlySessionRequestTypeListFromJson(
   List? createReadOnlySessionRequestType, [
   List<enums.CreateReadOnlySessionRequestType>? defaultValue,
 ]) {
@@ -28460,7 +28274,7 @@ createReadOnlySessionRequestTypeListFromJson(
 }
 
 List<enums.CreateReadOnlySessionRequestType>?
-createReadOnlySessionRequestTypeNullableListFromJson(
+    createReadOnlySessionRequestTypeNullableListFromJson(
   List? createReadOnlySessionRequestType, [
   List<enums.CreateReadOnlySessionRequestType>? defaultValue,
 ]) {
@@ -28486,7 +28300,7 @@ String? createReadWriteSessionRequestTypeToJson(
 }
 
 enums.CreateReadWriteSessionRequestType
-createReadWriteSessionRequestTypeFromJson(
+    createReadWriteSessionRequestTypeFromJson(
   Object? createReadWriteSessionRequestType, [
   enums.CreateReadWriteSessionRequestType? defaultValue,
 ]) {
@@ -28498,7 +28312,7 @@ createReadWriteSessionRequestTypeFromJson(
 }
 
 enums.CreateReadWriteSessionRequestType?
-createReadWriteSessionRequestTypeNullableFromJson(
+    createReadWriteSessionRequestTypeNullableFromJson(
   Object? createReadWriteSessionRequestType, [
   enums.CreateReadWriteSessionRequestType? defaultValue,
 ]) {
@@ -28513,7 +28327,7 @@ createReadWriteSessionRequestTypeNullableFromJson(
 
 String createReadWriteSessionRequestTypeExplodedListToJson(
   List<enums.CreateReadWriteSessionRequestType>?
-  createReadWriteSessionRequestType,
+      createReadWriteSessionRequestType,
 ) {
   return createReadWriteSessionRequestType?.map((e) => e.value!).join(',') ??
       '';
@@ -28521,7 +28335,7 @@ String createReadWriteSessionRequestTypeExplodedListToJson(
 
 List<String> createReadWriteSessionRequestTypeListToJson(
   List<enums.CreateReadWriteSessionRequestType>?
-  createReadWriteSessionRequestType,
+      createReadWriteSessionRequestType,
 ) {
   if (createReadWriteSessionRequestType == null) {
     return [];
@@ -28531,7 +28345,7 @@ List<String> createReadWriteSessionRequestTypeListToJson(
 }
 
 List<enums.CreateReadWriteSessionRequestType>
-createReadWriteSessionRequestTypeListFromJson(
+    createReadWriteSessionRequestTypeListFromJson(
   List? createReadWriteSessionRequestType, [
   List<enums.CreateReadWriteSessionRequestType>? defaultValue,
 ]) {
@@ -28545,7 +28359,7 @@ createReadWriteSessionRequestTypeListFromJson(
 }
 
 List<enums.CreateReadWriteSessionRequestType>?
-createReadWriteSessionRequestTypeNullableListFromJson(
+    createReadWriteSessionRequestTypeNullableListFromJson(
   List? createReadWriteSessionRequestType, [
   List<enums.CreateReadWriteSessionRequestType>? defaultValue,
 ]) {
@@ -28582,7 +28396,7 @@ enums.CreateSubOrganizationRequestType createSubOrganizationRequestTypeFromJson(
 }
 
 enums.CreateSubOrganizationRequestType?
-createSubOrganizationRequestTypeNullableFromJson(
+    createSubOrganizationRequestTypeNullableFromJson(
   Object? createSubOrganizationRequestType, [
   enums.CreateSubOrganizationRequestType? defaultValue,
 ]) {
@@ -28597,14 +28411,14 @@ createSubOrganizationRequestTypeNullableFromJson(
 
 String createSubOrganizationRequestTypeExplodedListToJson(
   List<enums.CreateSubOrganizationRequestType>?
-  createSubOrganizationRequestType,
+      createSubOrganizationRequestType,
 ) {
   return createSubOrganizationRequestType?.map((e) => e.value!).join(',') ?? '';
 }
 
 List<String> createSubOrganizationRequestTypeListToJson(
   List<enums.CreateSubOrganizationRequestType>?
-  createSubOrganizationRequestType,
+      createSubOrganizationRequestType,
 ) {
   if (createSubOrganizationRequestType == null) {
     return [];
@@ -28614,7 +28428,7 @@ List<String> createSubOrganizationRequestTypeListToJson(
 }
 
 List<enums.CreateSubOrganizationRequestType>
-createSubOrganizationRequestTypeListFromJson(
+    createSubOrganizationRequestTypeListFromJson(
   List? createSubOrganizationRequestType, [
   List<enums.CreateSubOrganizationRequestType>? defaultValue,
 ]) {
@@ -28628,7 +28442,7 @@ createSubOrganizationRequestTypeListFromJson(
 }
 
 List<enums.CreateSubOrganizationRequestType>?
-createSubOrganizationRequestTypeNullableListFromJson(
+    createSubOrganizationRequestTypeNullableListFromJson(
   List? createSubOrganizationRequestType, [
   List<enums.CreateSubOrganizationRequestType>? defaultValue,
 ]) {
@@ -28707,7 +28521,7 @@ List<enums.CreateUserTagRequestType> createUserTagRequestTypeListFromJson(
 }
 
 List<enums.CreateUserTagRequestType>?
-createUserTagRequestTypeNullableListFromJson(
+    createUserTagRequestTypeNullableListFromJson(
   List? createUserTagRequestType, [
   List<enums.CreateUserTagRequestType>? defaultValue,
 ]) {
@@ -28822,7 +28636,7 @@ enums.CreateWalletAccountsRequestType createWalletAccountsRequestTypeFromJson(
 }
 
 enums.CreateWalletAccountsRequestType?
-createWalletAccountsRequestTypeNullableFromJson(
+    createWalletAccountsRequestTypeNullableFromJson(
   Object? createWalletAccountsRequestType, [
   enums.CreateWalletAccountsRequestType? defaultValue,
 ]) {
@@ -28852,7 +28666,7 @@ List<String> createWalletAccountsRequestTypeListToJson(
 }
 
 List<enums.CreateWalletAccountsRequestType>
-createWalletAccountsRequestTypeListFromJson(
+    createWalletAccountsRequestTypeListFromJson(
   List? createWalletAccountsRequestType, [
   List<enums.CreateWalletAccountsRequestType>? defaultValue,
 ]) {
@@ -28866,7 +28680,7 @@ createWalletAccountsRequestTypeListFromJson(
 }
 
 List<enums.CreateWalletAccountsRequestType>?
-createWalletAccountsRequestTypeNullableListFromJson(
+    createWalletAccountsRequestTypeNullableListFromJson(
   List? createWalletAccountsRequestType, [
   List<enums.CreateWalletAccountsRequestType>? defaultValue,
 ]) {
@@ -28945,7 +28759,7 @@ List<enums.CreateWalletRequestType> createWalletRequestTypeListFromJson(
 }
 
 List<enums.CreateWalletRequestType>?
-createWalletRequestTypeNullableListFromJson(
+    createWalletRequestTypeNullableListFromJson(
   List? createWalletRequestType, [
   List<enums.CreateWalletRequestType>? defaultValue,
 ]) {
@@ -29154,7 +28968,7 @@ List<enums.DeleteApiKeysRequestType> deleteApiKeysRequestTypeListFromJson(
 }
 
 List<enums.DeleteApiKeysRequestType>?
-deleteApiKeysRequestTypeNullableListFromJson(
+    deleteApiKeysRequestTypeNullableListFromJson(
   List? deleteApiKeysRequestType, [
   List<enums.DeleteApiKeysRequestType>? defaultValue,
 ]) {
@@ -29191,7 +29005,7 @@ enums.DeleteAuthenticatorsRequestType deleteAuthenticatorsRequestTypeFromJson(
 }
 
 enums.DeleteAuthenticatorsRequestType?
-deleteAuthenticatorsRequestTypeNullableFromJson(
+    deleteAuthenticatorsRequestTypeNullableFromJson(
   Object? deleteAuthenticatorsRequestType, [
   enums.DeleteAuthenticatorsRequestType? defaultValue,
 ]) {
@@ -29221,7 +29035,7 @@ List<String> deleteAuthenticatorsRequestTypeListToJson(
 }
 
 List<enums.DeleteAuthenticatorsRequestType>
-deleteAuthenticatorsRequestTypeListFromJson(
+    deleteAuthenticatorsRequestTypeListFromJson(
   List? deleteAuthenticatorsRequestType, [
   List<enums.DeleteAuthenticatorsRequestType>? defaultValue,
 ]) {
@@ -29235,7 +29049,7 @@ deleteAuthenticatorsRequestTypeListFromJson(
 }
 
 List<enums.DeleteAuthenticatorsRequestType>?
-deleteAuthenticatorsRequestTypeNullableListFromJson(
+    deleteAuthenticatorsRequestTypeNullableListFromJson(
   List? deleteAuthenticatorsRequestType, [
   List<enums.DeleteAuthenticatorsRequestType>? defaultValue,
 ]) {
@@ -29314,7 +29128,7 @@ List<enums.DeleteInvitationRequestType> deleteInvitationRequestTypeListFromJson(
 }
 
 List<enums.DeleteInvitationRequestType>?
-deleteInvitationRequestTypeNullableListFromJson(
+    deleteInvitationRequestTypeNullableListFromJson(
   List? deleteInvitationRequestType, [
   List<enums.DeleteInvitationRequestType>? defaultValue,
 ]) {
@@ -29351,7 +29165,7 @@ enums.DeleteOauthProvidersRequestType deleteOauthProvidersRequestTypeFromJson(
 }
 
 enums.DeleteOauthProvidersRequestType?
-deleteOauthProvidersRequestTypeNullableFromJson(
+    deleteOauthProvidersRequestTypeNullableFromJson(
   Object? deleteOauthProvidersRequestType, [
   enums.DeleteOauthProvidersRequestType? defaultValue,
 ]) {
@@ -29381,7 +29195,7 @@ List<String> deleteOauthProvidersRequestTypeListToJson(
 }
 
 List<enums.DeleteOauthProvidersRequestType>
-deleteOauthProvidersRequestTypeListFromJson(
+    deleteOauthProvidersRequestTypeListFromJson(
   List? deleteOauthProvidersRequestType, [
   List<enums.DeleteOauthProvidersRequestType>? defaultValue,
 ]) {
@@ -29395,7 +29209,7 @@ deleteOauthProvidersRequestTypeListFromJson(
 }
 
 List<enums.DeleteOauthProvidersRequestType>?
-deleteOauthProvidersRequestTypeNullableListFromJson(
+    deleteOauthProvidersRequestTypeNullableListFromJson(
   List? deleteOauthProvidersRequestType, [
   List<enums.DeleteOauthProvidersRequestType>? defaultValue,
 ]) {
@@ -29474,7 +29288,7 @@ List<enums.DeletePolicyRequestType> deletePolicyRequestTypeListFromJson(
 }
 
 List<enums.DeletePolicyRequestType>?
-deletePolicyRequestTypeNullableListFromJson(
+    deletePolicyRequestTypeNullableListFromJson(
   List? deletePolicyRequestType, [
   List<enums.DeletePolicyRequestType>? defaultValue,
 ]) {
@@ -29511,7 +29325,7 @@ enums.DeletePrivateKeyTagsRequestType deletePrivateKeyTagsRequestTypeFromJson(
 }
 
 enums.DeletePrivateKeyTagsRequestType?
-deletePrivateKeyTagsRequestTypeNullableFromJson(
+    deletePrivateKeyTagsRequestTypeNullableFromJson(
   Object? deletePrivateKeyTagsRequestType, [
   enums.DeletePrivateKeyTagsRequestType? defaultValue,
 ]) {
@@ -29541,7 +29355,7 @@ List<String> deletePrivateKeyTagsRequestTypeListToJson(
 }
 
 List<enums.DeletePrivateKeyTagsRequestType>
-deletePrivateKeyTagsRequestTypeListFromJson(
+    deletePrivateKeyTagsRequestTypeListFromJson(
   List? deletePrivateKeyTagsRequestType, [
   List<enums.DeletePrivateKeyTagsRequestType>? defaultValue,
 ]) {
@@ -29555,7 +29369,7 @@ deletePrivateKeyTagsRequestTypeListFromJson(
 }
 
 List<enums.DeletePrivateKeyTagsRequestType>?
-deletePrivateKeyTagsRequestTypeNullableListFromJson(
+    deletePrivateKeyTagsRequestTypeNullableListFromJson(
   List? deletePrivateKeyTagsRequestType, [
   List<enums.DeletePrivateKeyTagsRequestType>? defaultValue,
 ]) {
@@ -29592,7 +29406,7 @@ enums.DeletePrivateKeysRequestType deletePrivateKeysRequestTypeFromJson(
 }
 
 enums.DeletePrivateKeysRequestType?
-deletePrivateKeysRequestTypeNullableFromJson(
+    deletePrivateKeysRequestTypeNullableFromJson(
   Object? deletePrivateKeysRequestType, [
   enums.DeletePrivateKeysRequestType? defaultValue,
 ]) {
@@ -29622,7 +29436,7 @@ List<String> deletePrivateKeysRequestTypeListToJson(
 }
 
 List<enums.DeletePrivateKeysRequestType>
-deletePrivateKeysRequestTypeListFromJson(
+    deletePrivateKeysRequestTypeListFromJson(
   List? deletePrivateKeysRequestType, [
   List<enums.DeletePrivateKeysRequestType>? defaultValue,
 ]) {
@@ -29636,7 +29450,7 @@ deletePrivateKeysRequestTypeListFromJson(
 }
 
 List<enums.DeletePrivateKeysRequestType>?
-deletePrivateKeysRequestTypeNullableListFromJson(
+    deletePrivateKeysRequestTypeNullableListFromJson(
   List? deletePrivateKeysRequestType, [
   List<enums.DeletePrivateKeysRequestType>? defaultValue,
 ]) {
@@ -29673,7 +29487,7 @@ enums.DeleteSubOrganizationRequestType deleteSubOrganizationRequestTypeFromJson(
 }
 
 enums.DeleteSubOrganizationRequestType?
-deleteSubOrganizationRequestTypeNullableFromJson(
+    deleteSubOrganizationRequestTypeNullableFromJson(
   Object? deleteSubOrganizationRequestType, [
   enums.DeleteSubOrganizationRequestType? defaultValue,
 ]) {
@@ -29688,14 +29502,14 @@ deleteSubOrganizationRequestTypeNullableFromJson(
 
 String deleteSubOrganizationRequestTypeExplodedListToJson(
   List<enums.DeleteSubOrganizationRequestType>?
-  deleteSubOrganizationRequestType,
+      deleteSubOrganizationRequestType,
 ) {
   return deleteSubOrganizationRequestType?.map((e) => e.value!).join(',') ?? '';
 }
 
 List<String> deleteSubOrganizationRequestTypeListToJson(
   List<enums.DeleteSubOrganizationRequestType>?
-  deleteSubOrganizationRequestType,
+      deleteSubOrganizationRequestType,
 ) {
   if (deleteSubOrganizationRequestType == null) {
     return [];
@@ -29705,7 +29519,7 @@ List<String> deleteSubOrganizationRequestTypeListToJson(
 }
 
 List<enums.DeleteSubOrganizationRequestType>
-deleteSubOrganizationRequestTypeListFromJson(
+    deleteSubOrganizationRequestTypeListFromJson(
   List? deleteSubOrganizationRequestType, [
   List<enums.DeleteSubOrganizationRequestType>? defaultValue,
 ]) {
@@ -29719,7 +29533,7 @@ deleteSubOrganizationRequestTypeListFromJson(
 }
 
 List<enums.DeleteSubOrganizationRequestType>?
-deleteSubOrganizationRequestTypeNullableListFromJson(
+    deleteSubOrganizationRequestTypeNullableListFromJson(
   List? deleteSubOrganizationRequestType, [
   List<enums.DeleteSubOrganizationRequestType>? defaultValue,
 ]) {
@@ -29798,7 +29612,7 @@ List<enums.DeleteUserTagsRequestType> deleteUserTagsRequestTypeListFromJson(
 }
 
 List<enums.DeleteUserTagsRequestType>?
-deleteUserTagsRequestTypeNullableListFromJson(
+    deleteUserTagsRequestTypeNullableListFromJson(
   List? deleteUserTagsRequestType, [
   List<enums.DeleteUserTagsRequestType>? defaultValue,
 ]) {
@@ -29955,7 +29769,7 @@ List<enums.DeleteWalletsRequestType> deleteWalletsRequestTypeListFromJson(
 }
 
 List<enums.DeleteWalletsRequestType>?
-deleteWalletsRequestTypeNullableListFromJson(
+    deleteWalletsRequestTypeNullableListFromJson(
   List? deleteWalletsRequestType, [
   List<enums.DeleteWalletsRequestType>? defaultValue,
 ]) {
@@ -30171,7 +29985,7 @@ List<enums.ExportPrivateKeyRequestType> exportPrivateKeyRequestTypeListFromJson(
 }
 
 List<enums.ExportPrivateKeyRequestType>?
-exportPrivateKeyRequestTypeNullableListFromJson(
+    exportPrivateKeyRequestTypeNullableListFromJson(
   List? exportPrivateKeyRequestType, [
   List<enums.ExportPrivateKeyRequestType>? defaultValue,
 ]) {
@@ -30208,7 +30022,7 @@ enums.ExportWalletAccountRequestType exportWalletAccountRequestTypeFromJson(
 }
 
 enums.ExportWalletAccountRequestType?
-exportWalletAccountRequestTypeNullableFromJson(
+    exportWalletAccountRequestTypeNullableFromJson(
   Object? exportWalletAccountRequestType, [
   enums.ExportWalletAccountRequestType? defaultValue,
 ]) {
@@ -30238,7 +30052,7 @@ List<String> exportWalletAccountRequestTypeListToJson(
 }
 
 List<enums.ExportWalletAccountRequestType>
-exportWalletAccountRequestTypeListFromJson(
+    exportWalletAccountRequestTypeListFromJson(
   List? exportWalletAccountRequestType, [
   List<enums.ExportWalletAccountRequestType>? defaultValue,
 ]) {
@@ -30252,7 +30066,7 @@ exportWalletAccountRequestTypeListFromJson(
 }
 
 List<enums.ExportWalletAccountRequestType>?
-exportWalletAccountRequestTypeNullableListFromJson(
+    exportWalletAccountRequestTypeNullableListFromJson(
   List? exportWalletAccountRequestType, [
   List<enums.ExportWalletAccountRequestType>? defaultValue,
 ]) {
@@ -30331,7 +30145,7 @@ List<enums.ExportWalletRequestType> exportWalletRequestTypeListFromJson(
 }
 
 List<enums.ExportWalletRequestType>?
-exportWalletRequestTypeNullableListFromJson(
+    exportWalletRequestTypeNullableListFromJson(
   List? exportWalletRequestType, [
   List<enums.ExportWalletRequestType>? defaultValue,
 ]) {
@@ -30542,7 +30356,7 @@ List<enums.ImportPrivateKeyRequestType> importPrivateKeyRequestTypeListFromJson(
 }
 
 List<enums.ImportPrivateKeyRequestType>?
-importPrivateKeyRequestTypeNullableListFromJson(
+    importPrivateKeyRequestTypeNullableListFromJson(
   List? importPrivateKeyRequestType, [
   List<enums.ImportPrivateKeyRequestType>? defaultValue,
 ]) {
@@ -30621,7 +30435,7 @@ List<enums.ImportWalletRequestType> importWalletRequestTypeListFromJson(
 }
 
 List<enums.ImportWalletRequestType>?
-importWalletRequestTypeNullableListFromJson(
+    importWalletRequestTypeNullableListFromJson(
   List? importWalletRequestType, [
   List<enums.ImportWalletRequestType>? defaultValue,
 ]) {
@@ -30658,7 +30472,7 @@ enums.InitImportPrivateKeyRequestType initImportPrivateKeyRequestTypeFromJson(
 }
 
 enums.InitImportPrivateKeyRequestType?
-initImportPrivateKeyRequestTypeNullableFromJson(
+    initImportPrivateKeyRequestTypeNullableFromJson(
   Object? initImportPrivateKeyRequestType, [
   enums.InitImportPrivateKeyRequestType? defaultValue,
 ]) {
@@ -30688,7 +30502,7 @@ List<String> initImportPrivateKeyRequestTypeListToJson(
 }
 
 List<enums.InitImportPrivateKeyRequestType>
-initImportPrivateKeyRequestTypeListFromJson(
+    initImportPrivateKeyRequestTypeListFromJson(
   List? initImportPrivateKeyRequestType, [
   List<enums.InitImportPrivateKeyRequestType>? defaultValue,
 ]) {
@@ -30702,7 +30516,7 @@ initImportPrivateKeyRequestTypeListFromJson(
 }
 
 List<enums.InitImportPrivateKeyRequestType>?
-initImportPrivateKeyRequestTypeNullableListFromJson(
+    initImportPrivateKeyRequestTypeNullableListFromJson(
   List? initImportPrivateKeyRequestType, [
   List<enums.InitImportPrivateKeyRequestType>? defaultValue,
 ]) {
@@ -30781,7 +30595,7 @@ List<enums.InitImportWalletRequestType> initImportWalletRequestTypeListFromJson(
 }
 
 List<enums.InitImportWalletRequestType>?
-initImportWalletRequestTypeNullableListFromJson(
+    initImportWalletRequestTypeNullableListFromJson(
   List? initImportWalletRequestType, [
   List<enums.InitImportWalletRequestType>? defaultValue,
 ]) {
@@ -30972,7 +30786,7 @@ enums.InitUserEmailRecoveryRequestType initUserEmailRecoveryRequestTypeFromJson(
 }
 
 enums.InitUserEmailRecoveryRequestType?
-initUserEmailRecoveryRequestTypeNullableFromJson(
+    initUserEmailRecoveryRequestTypeNullableFromJson(
   Object? initUserEmailRecoveryRequestType, [
   enums.InitUserEmailRecoveryRequestType? defaultValue,
 ]) {
@@ -30987,14 +30801,14 @@ initUserEmailRecoveryRequestTypeNullableFromJson(
 
 String initUserEmailRecoveryRequestTypeExplodedListToJson(
   List<enums.InitUserEmailRecoveryRequestType>?
-  initUserEmailRecoveryRequestType,
+      initUserEmailRecoveryRequestType,
 ) {
   return initUserEmailRecoveryRequestType?.map((e) => e.value!).join(',') ?? '';
 }
 
 List<String> initUserEmailRecoveryRequestTypeListToJson(
   List<enums.InitUserEmailRecoveryRequestType>?
-  initUserEmailRecoveryRequestType,
+      initUserEmailRecoveryRequestType,
 ) {
   if (initUserEmailRecoveryRequestType == null) {
     return [];
@@ -31004,7 +30818,7 @@ List<String> initUserEmailRecoveryRequestTypeListToJson(
 }
 
 List<enums.InitUserEmailRecoveryRequestType>
-initUserEmailRecoveryRequestTypeListFromJson(
+    initUserEmailRecoveryRequestTypeListFromJson(
   List? initUserEmailRecoveryRequestType, [
   List<enums.InitUserEmailRecoveryRequestType>? defaultValue,
 ]) {
@@ -31018,7 +30832,7 @@ initUserEmailRecoveryRequestTypeListFromJson(
 }
 
 List<enums.InitUserEmailRecoveryRequestType>?
-initUserEmailRecoveryRequestTypeNullableListFromJson(
+    initUserEmailRecoveryRequestTypeNullableListFromJson(
   List? initUserEmailRecoveryRequestType, [
   List<enums.InitUserEmailRecoveryRequestType>? defaultValue,
 ]) {
@@ -31619,20 +31433,20 @@ List<enums.PayloadEncoding>? payloadEncodingNullableListFromJson(
 
 String? publicKeyCredentialWithAttestationTypeNullableToJson(
   enums.PublicKeyCredentialWithAttestationType?
-  publicKeyCredentialWithAttestationType,
+      publicKeyCredentialWithAttestationType,
 ) {
   return publicKeyCredentialWithAttestationType?.value;
 }
 
 String? publicKeyCredentialWithAttestationTypeToJson(
   enums.PublicKeyCredentialWithAttestationType
-  publicKeyCredentialWithAttestationType,
+      publicKeyCredentialWithAttestationType,
 ) {
   return publicKeyCredentialWithAttestationType.value;
 }
 
 enums.PublicKeyCredentialWithAttestationType
-publicKeyCredentialWithAttestationTypeFromJson(
+    publicKeyCredentialWithAttestationTypeFromJson(
   Object? publicKeyCredentialWithAttestationType, [
   enums.PublicKeyCredentialWithAttestationType? defaultValue,
 ]) {
@@ -31644,7 +31458,7 @@ publicKeyCredentialWithAttestationTypeFromJson(
 }
 
 enums.PublicKeyCredentialWithAttestationType?
-publicKeyCredentialWithAttestationTypeNullableFromJson(
+    publicKeyCredentialWithAttestationTypeNullableFromJson(
   Object? publicKeyCredentialWithAttestationType, [
   enums.PublicKeyCredentialWithAttestationType? defaultValue,
 ]) {
@@ -31659,7 +31473,7 @@ publicKeyCredentialWithAttestationTypeNullableFromJson(
 
 String publicKeyCredentialWithAttestationTypeExplodedListToJson(
   List<enums.PublicKeyCredentialWithAttestationType>?
-  publicKeyCredentialWithAttestationType,
+      publicKeyCredentialWithAttestationType,
 ) {
   return publicKeyCredentialWithAttestationType
           ?.map((e) => e.value!)
@@ -31669,7 +31483,7 @@ String publicKeyCredentialWithAttestationTypeExplodedListToJson(
 
 List<String> publicKeyCredentialWithAttestationTypeListToJson(
   List<enums.PublicKeyCredentialWithAttestationType>?
-  publicKeyCredentialWithAttestationType,
+      publicKeyCredentialWithAttestationType,
 ) {
   if (publicKeyCredentialWithAttestationType == null) {
     return [];
@@ -31679,7 +31493,7 @@ List<String> publicKeyCredentialWithAttestationTypeListToJson(
 }
 
 List<enums.PublicKeyCredentialWithAttestationType>
-publicKeyCredentialWithAttestationTypeListFromJson(
+    publicKeyCredentialWithAttestationTypeListFromJson(
   List? publicKeyCredentialWithAttestationType, [
   List<enums.PublicKeyCredentialWithAttestationType>? defaultValue,
 ]) {
@@ -31693,7 +31507,7 @@ publicKeyCredentialWithAttestationTypeListFromJson(
 }
 
 List<enums.PublicKeyCredentialWithAttestationType>?
-publicKeyCredentialWithAttestationTypeNullableListFromJson(
+    publicKeyCredentialWithAttestationTypeNullableListFromJson(
   List? publicKeyCredentialWithAttestationType, [
   List<enums.PublicKeyCredentialWithAttestationType>? defaultValue,
 ]) {
@@ -31708,37 +31522,36 @@ publicKeyCredentialWithAttestationTypeNullableListFromJson(
 
 String? publicKeyCredentialWithAttestationAuthenticatorAttachmentNullableToJson(
   enums.PublicKeyCredentialWithAttestationAuthenticatorAttachment?
-  publicKeyCredentialWithAttestationAuthenticatorAttachment,
+      publicKeyCredentialWithAttestationAuthenticatorAttachment,
 ) {
   return publicKeyCredentialWithAttestationAuthenticatorAttachment?.value;
 }
 
 String? publicKeyCredentialWithAttestationAuthenticatorAttachmentToJson(
   enums.PublicKeyCredentialWithAttestationAuthenticatorAttachment
-  publicKeyCredentialWithAttestationAuthenticatorAttachment,
+      publicKeyCredentialWithAttestationAuthenticatorAttachment,
 ) {
   return publicKeyCredentialWithAttestationAuthenticatorAttachment.value;
 }
 
 enums.PublicKeyCredentialWithAttestationAuthenticatorAttachment
-publicKeyCredentialWithAttestationAuthenticatorAttachmentFromJson(
+    publicKeyCredentialWithAttestationAuthenticatorAttachmentFromJson(
   Object? publicKeyCredentialWithAttestationAuthenticatorAttachment, [
   enums.PublicKeyCredentialWithAttestationAuthenticatorAttachment? defaultValue,
 ]) {
   return enums.PublicKeyCredentialWithAttestationAuthenticatorAttachment.values
           .firstWhereOrNull(
-            (e) =>
-                e.value ==
-                publicKeyCredentialWithAttestationAuthenticatorAttachment,
-          ) ??
+        (e) =>
+            e.value ==
+            publicKeyCredentialWithAttestationAuthenticatorAttachment,
+      ) ??
       defaultValue ??
-      enums
-          .PublicKeyCredentialWithAttestationAuthenticatorAttachment
+      enums.PublicKeyCredentialWithAttestationAuthenticatorAttachment
           .swaggerGeneratedUnknown;
 }
 
 enums.PublicKeyCredentialWithAttestationAuthenticatorAttachment?
-publicKeyCredentialWithAttestationAuthenticatorAttachmentNullableFromJson(
+    publicKeyCredentialWithAttestationAuthenticatorAttachmentNullableFromJson(
   Object? publicKeyCredentialWithAttestationAuthenticatorAttachment, [
   enums.PublicKeyCredentialWithAttestationAuthenticatorAttachment? defaultValue,
 ]) {
@@ -31747,17 +31560,17 @@ publicKeyCredentialWithAttestationAuthenticatorAttachmentNullableFromJson(
   }
   return enums.PublicKeyCredentialWithAttestationAuthenticatorAttachment.values
           .firstWhereOrNull(
-            (e) =>
-                e.value ==
-                publicKeyCredentialWithAttestationAuthenticatorAttachment,
-          ) ??
+        (e) =>
+            e.value ==
+            publicKeyCredentialWithAttestationAuthenticatorAttachment,
+      ) ??
       defaultValue;
 }
 
 String
-publicKeyCredentialWithAttestationAuthenticatorAttachmentExplodedListToJson(
+    publicKeyCredentialWithAttestationAuthenticatorAttachmentExplodedListToJson(
   List<enums.PublicKeyCredentialWithAttestationAuthenticatorAttachment>?
-  publicKeyCredentialWithAttestationAuthenticatorAttachment,
+      publicKeyCredentialWithAttestationAuthenticatorAttachment,
 ) {
   return publicKeyCredentialWithAttestationAuthenticatorAttachment
           ?.map((e) => e.value!)
@@ -31766,9 +31579,9 @@ publicKeyCredentialWithAttestationAuthenticatorAttachmentExplodedListToJson(
 }
 
 List<String>
-publicKeyCredentialWithAttestationAuthenticatorAttachmentListToJson(
+    publicKeyCredentialWithAttestationAuthenticatorAttachmentListToJson(
   List<enums.PublicKeyCredentialWithAttestationAuthenticatorAttachment>?
-  publicKeyCredentialWithAttestationAuthenticatorAttachment,
+      publicKeyCredentialWithAttestationAuthenticatorAttachment,
 ) {
   if (publicKeyCredentialWithAttestationAuthenticatorAttachment == null) {
     return [];
@@ -31780,10 +31593,10 @@ publicKeyCredentialWithAttestationAuthenticatorAttachmentListToJson(
 }
 
 List<enums.PublicKeyCredentialWithAttestationAuthenticatorAttachment>
-publicKeyCredentialWithAttestationAuthenticatorAttachmentListFromJson(
+    publicKeyCredentialWithAttestationAuthenticatorAttachmentListFromJson(
   List? publicKeyCredentialWithAttestationAuthenticatorAttachment, [
   List<enums.PublicKeyCredentialWithAttestationAuthenticatorAttachment>?
-  defaultValue,
+      defaultValue,
 ]) {
   if (publicKeyCredentialWithAttestationAuthenticatorAttachment == null) {
     return defaultValue ?? [];
@@ -31793,17 +31606,17 @@ publicKeyCredentialWithAttestationAuthenticatorAttachmentListFromJson(
       .map(
         (e) =>
             publicKeyCredentialWithAttestationAuthenticatorAttachmentFromJson(
-              e.toString(),
-            ),
+          e.toString(),
+        ),
       )
       .toList();
 }
 
 List<enums.PublicKeyCredentialWithAttestationAuthenticatorAttachment>?
-publicKeyCredentialWithAttestationAuthenticatorAttachmentNullableListFromJson(
+    publicKeyCredentialWithAttestationAuthenticatorAttachmentNullableListFromJson(
   List? publicKeyCredentialWithAttestationAuthenticatorAttachment, [
   List<enums.PublicKeyCredentialWithAttestationAuthenticatorAttachment>?
-  defaultValue,
+      defaultValue,
 ]) {
   if (publicKeyCredentialWithAttestationAuthenticatorAttachment == null) {
     return defaultValue;
@@ -31813,8 +31626,8 @@ publicKeyCredentialWithAttestationAuthenticatorAttachmentNullableListFromJson(
       .map(
         (e) =>
             publicKeyCredentialWithAttestationAuthenticatorAttachmentFromJson(
-              e.toString(),
-            ),
+          e.toString(),
+        ),
       )
       .toList();
 }
@@ -31963,7 +31776,7 @@ List<enums.RejectActivityRequestType> rejectActivityRequestTypeListFromJson(
 }
 
 List<enums.RejectActivityRequestType>?
-rejectActivityRequestTypeNullableListFromJson(
+    rejectActivityRequestTypeNullableListFromJson(
   List? rejectActivityRequestType, [
   List<enums.RejectActivityRequestType>? defaultValue,
 ]) {
@@ -31978,20 +31791,20 @@ rejectActivityRequestTypeNullableListFromJson(
 
 String? removeOrganizationFeatureRequestTypeNullableToJson(
   enums.RemoveOrganizationFeatureRequestType?
-  removeOrganizationFeatureRequestType,
+      removeOrganizationFeatureRequestType,
 ) {
   return removeOrganizationFeatureRequestType?.value;
 }
 
 String? removeOrganizationFeatureRequestTypeToJson(
   enums.RemoveOrganizationFeatureRequestType
-  removeOrganizationFeatureRequestType,
+      removeOrganizationFeatureRequestType,
 ) {
   return removeOrganizationFeatureRequestType.value;
 }
 
 enums.RemoveOrganizationFeatureRequestType
-removeOrganizationFeatureRequestTypeFromJson(
+    removeOrganizationFeatureRequestTypeFromJson(
   Object? removeOrganizationFeatureRequestType, [
   enums.RemoveOrganizationFeatureRequestType? defaultValue,
 ]) {
@@ -32003,7 +31816,7 @@ removeOrganizationFeatureRequestTypeFromJson(
 }
 
 enums.RemoveOrganizationFeatureRequestType?
-removeOrganizationFeatureRequestTypeNullableFromJson(
+    removeOrganizationFeatureRequestTypeNullableFromJson(
   Object? removeOrganizationFeatureRequestType, [
   enums.RemoveOrganizationFeatureRequestType? defaultValue,
 ]) {
@@ -32018,7 +31831,7 @@ removeOrganizationFeatureRequestTypeNullableFromJson(
 
 String removeOrganizationFeatureRequestTypeExplodedListToJson(
   List<enums.RemoveOrganizationFeatureRequestType>?
-  removeOrganizationFeatureRequestType,
+      removeOrganizationFeatureRequestType,
 ) {
   return removeOrganizationFeatureRequestType?.map((e) => e.value!).join(',') ??
       '';
@@ -32026,7 +31839,7 @@ String removeOrganizationFeatureRequestTypeExplodedListToJson(
 
 List<String> removeOrganizationFeatureRequestTypeListToJson(
   List<enums.RemoveOrganizationFeatureRequestType>?
-  removeOrganizationFeatureRequestType,
+      removeOrganizationFeatureRequestType,
 ) {
   if (removeOrganizationFeatureRequestType == null) {
     return [];
@@ -32036,7 +31849,7 @@ List<String> removeOrganizationFeatureRequestTypeListToJson(
 }
 
 List<enums.RemoveOrganizationFeatureRequestType>
-removeOrganizationFeatureRequestTypeListFromJson(
+    removeOrganizationFeatureRequestTypeListFromJson(
   List? removeOrganizationFeatureRequestType, [
   List<enums.RemoveOrganizationFeatureRequestType>? defaultValue,
 ]) {
@@ -32050,7 +31863,7 @@ removeOrganizationFeatureRequestTypeListFromJson(
 }
 
 List<enums.RemoveOrganizationFeatureRequestType>?
-removeOrganizationFeatureRequestTypeNullableListFromJson(
+    removeOrganizationFeatureRequestTypeNullableListFromJson(
   List? removeOrganizationFeatureRequestType, [
   List<enums.RemoveOrganizationFeatureRequestType>? defaultValue,
 ]) {
@@ -32076,7 +31889,7 @@ String? setOrganizationFeatureRequestTypeToJson(
 }
 
 enums.SetOrganizationFeatureRequestType
-setOrganizationFeatureRequestTypeFromJson(
+    setOrganizationFeatureRequestTypeFromJson(
   Object? setOrganizationFeatureRequestType, [
   enums.SetOrganizationFeatureRequestType? defaultValue,
 ]) {
@@ -32088,7 +31901,7 @@ setOrganizationFeatureRequestTypeFromJson(
 }
 
 enums.SetOrganizationFeatureRequestType?
-setOrganizationFeatureRequestTypeNullableFromJson(
+    setOrganizationFeatureRequestTypeNullableFromJson(
   Object? setOrganizationFeatureRequestType, [
   enums.SetOrganizationFeatureRequestType? defaultValue,
 ]) {
@@ -32103,7 +31916,7 @@ setOrganizationFeatureRequestTypeNullableFromJson(
 
 String setOrganizationFeatureRequestTypeExplodedListToJson(
   List<enums.SetOrganizationFeatureRequestType>?
-  setOrganizationFeatureRequestType,
+      setOrganizationFeatureRequestType,
 ) {
   return setOrganizationFeatureRequestType?.map((e) => e.value!).join(',') ??
       '';
@@ -32111,7 +31924,7 @@ String setOrganizationFeatureRequestTypeExplodedListToJson(
 
 List<String> setOrganizationFeatureRequestTypeListToJson(
   List<enums.SetOrganizationFeatureRequestType>?
-  setOrganizationFeatureRequestType,
+      setOrganizationFeatureRequestType,
 ) {
   if (setOrganizationFeatureRequestType == null) {
     return [];
@@ -32121,7 +31934,7 @@ List<String> setOrganizationFeatureRequestTypeListToJson(
 }
 
 List<enums.SetOrganizationFeatureRequestType>
-setOrganizationFeatureRequestTypeListFromJson(
+    setOrganizationFeatureRequestTypeListFromJson(
   List? setOrganizationFeatureRequestType, [
   List<enums.SetOrganizationFeatureRequestType>? defaultValue,
 ]) {
@@ -32135,7 +31948,7 @@ setOrganizationFeatureRequestTypeListFromJson(
 }
 
 List<enums.SetOrganizationFeatureRequestType>?
-setOrganizationFeatureRequestTypeNullableListFromJson(
+    setOrganizationFeatureRequestTypeNullableListFromJson(
   List? setOrganizationFeatureRequestType, [
   List<enums.SetOrganizationFeatureRequestType>? defaultValue,
 ]) {
@@ -32214,7 +32027,7 @@ List<enums.SignRawPayloadRequestType> signRawPayloadRequestTypeListFromJson(
 }
 
 List<enums.SignRawPayloadRequestType>?
-signRawPayloadRequestTypeNullableListFromJson(
+    signRawPayloadRequestTypeNullableListFromJson(
   List? signRawPayloadRequestType, [
   List<enums.SignRawPayloadRequestType>? defaultValue,
 ]) {
@@ -32293,7 +32106,7 @@ List<enums.SignRawPayloadsRequestType> signRawPayloadsRequestTypeListFromJson(
 }
 
 List<enums.SignRawPayloadsRequestType>?
-signRawPayloadsRequestTypeNullableListFromJson(
+    signRawPayloadsRequestTypeNullableListFromJson(
   List? signRawPayloadsRequestType, [
   List<enums.SignRawPayloadsRequestType>? defaultValue,
 ]) {
@@ -32372,7 +32185,7 @@ List<enums.SignTransactionRequestType> signTransactionRequestTypeListFromJson(
 }
 
 List<enums.SignTransactionRequestType>?
-signTransactionRequestTypeNullableListFromJson(
+    signTransactionRequestTypeNullableListFromJson(
   List? signTransactionRequestType, [
   List<enums.SignTransactionRequestType>? defaultValue,
 ]) {
@@ -32662,7 +32475,7 @@ List<enums.UpdatePolicyRequestType> updatePolicyRequestTypeListFromJson(
 }
 
 List<enums.UpdatePolicyRequestType>?
-updatePolicyRequestTypeNullableListFromJson(
+    updatePolicyRequestTypeNullableListFromJson(
   List? updatePolicyRequestType, [
   List<enums.UpdatePolicyRequestType>? defaultValue,
 ]) {
@@ -32699,7 +32512,7 @@ enums.UpdatePrivateKeyTagRequestType updatePrivateKeyTagRequestTypeFromJson(
 }
 
 enums.UpdatePrivateKeyTagRequestType?
-updatePrivateKeyTagRequestTypeNullableFromJson(
+    updatePrivateKeyTagRequestTypeNullableFromJson(
   Object? updatePrivateKeyTagRequestType, [
   enums.UpdatePrivateKeyTagRequestType? defaultValue,
 ]) {
@@ -32729,7 +32542,7 @@ List<String> updatePrivateKeyTagRequestTypeListToJson(
 }
 
 List<enums.UpdatePrivateKeyTagRequestType>
-updatePrivateKeyTagRequestTypeListFromJson(
+    updatePrivateKeyTagRequestTypeListFromJson(
   List? updatePrivateKeyTagRequestType, [
   List<enums.UpdatePrivateKeyTagRequestType>? defaultValue,
 ]) {
@@ -32743,7 +32556,7 @@ updatePrivateKeyTagRequestTypeListFromJson(
 }
 
 List<enums.UpdatePrivateKeyTagRequestType>?
-updatePrivateKeyTagRequestTypeNullableListFromJson(
+    updatePrivateKeyTagRequestTypeNullableListFromJson(
   List? updatePrivateKeyTagRequestType, [
   List<enums.UpdatePrivateKeyTagRequestType>? defaultValue,
 ]) {
@@ -32822,7 +32635,7 @@ List<enums.UpdateRootQuorumRequestType> updateRootQuorumRequestTypeListFromJson(
 }
 
 List<enums.UpdateRootQuorumRequestType>?
-updateRootQuorumRequestTypeNullableListFromJson(
+    updateRootQuorumRequestTypeNullableListFromJson(
   List? updateRootQuorumRequestType, [
   List<enums.UpdateRootQuorumRequestType>? defaultValue,
 ]) {
@@ -32979,7 +32792,7 @@ List<enums.UpdateUserTagRequestType> updateUserTagRequestTypeListFromJson(
 }
 
 List<enums.UpdateUserTagRequestType>?
-updateUserTagRequestTypeNullableListFromJson(
+    updateUserTagRequestTypeNullableListFromJson(
   List? updateUserTagRequestType, [
   List<enums.UpdateUserTagRequestType>? defaultValue,
 ]) {
@@ -33058,7 +32871,7 @@ List<enums.UpdateWalletRequestType> updateWalletRequestTypeListFromJson(
 }
 
 List<enums.UpdateWalletRequestType>?
-updateWalletRequestTypeNullableListFromJson(
+    updateWalletRequestTypeNullableListFromJson(
   List? updateWalletRequestType, [
   List<enums.UpdateWalletRequestType>? defaultValue,
 ]) {
