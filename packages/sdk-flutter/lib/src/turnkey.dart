@@ -386,7 +386,7 @@ class TurnkeyProvider with ChangeNotifier {
     );
 
     final bundle = sessionResponse
-        .activity.result.createReadWriteSessionResultV2?.credentialBundle;
+        .activity.result?.createReadWriteSessionResultV2?.credentialBundle;
     if (bundle == null) {
       throw Exception(
         "Failed to create read/write session when refreshing the session",
@@ -587,7 +587,7 @@ class TurnkeyProvider with ChangeNotifier {
     );
 
     final activity = response.activity;
-    if (activity.result.updateUserResult?.userId != null) {
+    if (activity.result?.updateUserResult?.userId != null) {
       await refreshUser();
     }
 
@@ -625,7 +625,7 @@ class TurnkeyProvider with ChangeNotifier {
             organizationId: session!.user!.organizationId,
             parameters: parameters));
 
-    final signRawPayloadResult = response.activity.result.signRawPayloadResult;
+    final signRawPayloadResult = response.activity.result?.signRawPayloadResult;
     if (signRawPayloadResult == null) {
       throw Exception("Failed to sign raw payload");
     }
