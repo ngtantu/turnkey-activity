@@ -22,6 +22,12 @@ dev_dependencies:
 
 dependency_overrides:
   turnkey_api_key_stamper:
-    path: ../api-key-stamper
-  turnkey_http:
-    path: ../http
+    git:
+      url: https://github.com/ngtantu/turnkey-activity.git
+      path: packages/api-key-stamper
+      ref: main
+  turnkey_http: 
+    git:
+      url: https://github.com/ngtantu/turnkey-activity.git
+      path: packages/http
+      ref: main

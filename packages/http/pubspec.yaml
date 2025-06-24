@@ -2,7 +2,6 @@ name: turnkey_http
 description: A Dart package for making HTTP requests to the Turnkey API.
 version: 0.2.0
 repository: https://github.com/tkhq/dart-sdk
-publish_to: none
 
 environment:
   sdk: ^3.6.1
@@ -15,7 +14,10 @@ dependencies:
   json_annotation: ^4.9.0
   turnkey_encoding: ^0.1.0
   turnkey_api_key_stamper:
-    path: ../api-key-stamper
+    git:
+      url: https://github.com/ngtantu/turnkey-activity.git
+      path: packages/api-key-stamper
+      ref: main
   build: ^2.4.0
   swagger_dart_code_generator: ^3.0.1
   path: ^1.9.0
