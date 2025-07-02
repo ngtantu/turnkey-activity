@@ -602,7 +602,7 @@ class TurnkeyProvider with ChangeNotifier {
   /// [payload] The payload to sign.
   /// [encoding] The encoding of the payload.
   /// [hashFunction] The hash function to use.
-  Future<SignRawPayloadResult> signRawPayload(
+  Future<Activity> signRawPayload(
       {required String signWith,
       required String payload,
       required PayloadEncoding encoding,
@@ -625,11 +625,7 @@ class TurnkeyProvider with ChangeNotifier {
             organizationId: session!.user!.organizationId,
             parameters: parameters));
 
-    final signRawPayloadResult = response.activity.result?.signRawPayloadResult;
-    if (signRawPayloadResult == null) {
-      throw Exception("Failed to sign raw payload");
-    }
-    return signRawPayloadResult;
+    return response.activity;
   }
 
   /// Signs a transaction using the specified signing key and transaction parameters.
@@ -639,7 +635,7 @@ class TurnkeyProvider with ChangeNotifier {
   /// [signWith] The key to sign with.
   /// [unsignedTransaction] The unsigned transaction to sign.
   /// [type] The type of the transaction from the [TransactionType] enum.
-  Future<SignTransactionResult> signTransaction(
+  Future<Activity> signTransaction(
       {required String signWith,
       required String unsignedTransaction,
       required TransactionType type}) async {
@@ -658,13 +654,7 @@ class TurnkeyProvider with ChangeNotifier {
             timestampMs: DateTime.now().millisecondsSinceEpoch.toString(),
             organizationId: session!.user!.organizationId,
             parameters: parameters));
-
-    final signTransactionResult =
-        response.activity.result?.signTransactionResult;
-    if (signTransactionResult == null) {
-      throw Exception("Failed to sign transaction");
-    }
-    return signTransactionResult;
+    return response.activity;
   }
 
   /// Creates a new wallet with the specified name and accounts.
@@ -757,7 +747,7 @@ class TurnkeyProvider with ChangeNotifier {
   /// Throws an [Exception] if the client, user, or export bundle is not initialized.
   ///
   /// [walletId] The ID of the wallet to export.
-  Future<String> exportWallet({required String walletId}) async {
+  Future<Activity> exportWallet({required String walletId}) async {
     if (_client == null || session == null || session!.user == null) {
       throw Exception("Client or user not initialized");
     }
@@ -771,19 +761,7 @@ class TurnkeyProvider with ChangeNotifier {
             organizationId: session!.user!.organizationId,
             parameters: ExportWalletIntent(
                 walletId: walletId, targetPublicKey: targetPublicKey)));
-    final exportBundle =
-        response.activity.result?.exportWalletResult?.exportBundle;
-
-    final embeddedKey = await getEmbeddedKey();
-    if (exportBundle == null || embeddedKey == null) {
-      throw Exception("Export bundle, embedded key, or user not initialized");
-    }
-
-    return await decryptExportBundle(
-        exportBundle: exportBundle,
-        embeddedKey: embeddedKey,
-        organizationId: session!.user!.organizationId,
-        returnMnemonic: true);
+    return response.activity;
   }
 
   /// Handles the Google OAuth authentication flow.
