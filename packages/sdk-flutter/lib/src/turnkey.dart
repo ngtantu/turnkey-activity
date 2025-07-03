@@ -747,12 +747,11 @@ class TurnkeyProvider with ChangeNotifier {
   /// Throws an [Exception] if the client, user, or export bundle is not initialized.
   ///
   /// [walletId] The ID of the wallet to export.
-  Future<Activity> exportWallet({required String walletId}) async {
+  Future<Activity> exportWallet(
+      {required String walletId, required String publicKey}) async {
     if (_client == null || session == null || session!.user == null) {
       throw Exception("Client or user not initialized");
     }
-
-    final targetPublicKey = await createEmbeddedKey();
 
     final response = await _client!.exportWallet(
         input: ExportWalletRequest(
@@ -760,7 +759,7 @@ class TurnkeyProvider with ChangeNotifier {
             timestampMs: DateTime.now().millisecondsSinceEpoch.toString(),
             organizationId: session!.user!.organizationId,
             parameters: ExportWalletIntent(
-                walletId: walletId, targetPublicKey: targetPublicKey)));
+                walletId: walletId, targetPublicKey: publicKey)));
     return response.activity;
   }
 
